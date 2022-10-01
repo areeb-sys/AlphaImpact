@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Tabs.HomeFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp">
+
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@color/grey_300"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/square_corner_grey"
+                    android:padding="10dp"
+                    android:src="@mipmap/add_profile" />
+
+                <wasif.fyp.smartrestaurant.custom_text.customize_textview
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile_image"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="User Name"
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/username"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@mipmap/rating"
+                    android:gravity="center"
+                    android:text="User Name" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <wasif.fyp.smartrestaurant.custom_text.customize_textview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="FULL NAME"
+                    android:textColor="@color/grey_500"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:id="@+id/name"
+                    android:hint="Enter your full name"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:textSize="15sp" />
+
+                <wasif.fyp.smartrestaurant.custom_text.customize_textview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="PHONE NUMBER"
+                    android:textColor="@color/grey_500"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:id="@+id/no"
+                    android:backgroundTint="@color/colorPrimary"
+
+                    android:hint="Enter your number "
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:textSize="15sp" />
+
+                <wasif.fyp.smartrestaurant.custom_text.customize_textview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="EMAIL"
+
+                    android:textColor="@color/grey_500"
+                    android:textStyle="bold" />
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"                    android:backgroundTint="@color/colorPrimary"
+
+                    android:hint="Enter your email address"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:textSize="15sp" />
+
+
+                <wasif.fyp.smartrestaurant.custom_text.customize_textview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="HOME ADDRESS"
+
+                    android:textColor="@color/grey_500"
+                    android:textStyle="bold" />
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter your home address"
+                    android:imeOptions="actionNext"
+                    android:backgroundTint="@color/colorPrimary"
+
+                    android:inputType="textPostalAddress"
+                    android:textSize="15sp" />
+
+                <wasif.fyp.smartrestaurant.custom_text.customize_textview_toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Table#1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <wasif.fyp.smartrestaurant.custom_text.customize_textview_toolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Number Of Visits:"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <wasif.fyp.smartrestaurant.custom_text.customize_textview_toolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+
+                        android:text=" 6"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/update"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/linear1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_corner_edges"
+                android:gravity="center"
+                android:text="UPDATE"
+                android:textColor="@color/grey_400" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

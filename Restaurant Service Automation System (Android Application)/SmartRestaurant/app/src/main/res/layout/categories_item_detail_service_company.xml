@@ -1,0 +1,94 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    app:cardElevation="2dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:background="@color/green_100"
+            android:scaleType="fitXY"
+            android:src="@drawable/round_corner_" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <wasif.fyp.smartrestaurant.custom_text.customize_textview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Company Name"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
+            <wasif.fyp.smartrestaurant.custom_text.customize_textview
+                android:id="@+id/category_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:gravity="left"
+                android:text="Projects Completed"
+                android:textColor="@color/grey_500"
+                android:textSize="13sp" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/category_name"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
+
+
+                <wasif.fyp.smartrestaurant.custom_text.customize_textview
+                    android:id="@+id/category_usage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:paddingLeft="5dp"
+                    android:text="1.19 km away"
+                    android:textColor="@color/grey_500"
+                    android:textSize="13dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="11dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@mipmap/rating"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="15dp"
+        android:background="@color/grey_400" />
+</android.support.v7.widget.CardView>

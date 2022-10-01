@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Tabs.HomeFragment">
+
+    <ss.com.bannerslider.views.BannerSlider
+        android:id="@+id/banner10"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="50dp"
+        android:animateLayoutChanges="true"
+        app:animateIndicators="true"
+        app:defaultBanner="1"
+        app:defaultIndicators="dash"
+        app:interval="1800"
+        tools:ignore="NotSibling" />
+
+    <wasif.fyp.smartrestaurant.custom_text.customize_textview
+        android:id="@+id/t"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/banner10"
+        android:layout_margin="5dp"
+        android:text="Enter Discount Here: "
+        android:textColor="@color/black"
+        android:textSize="22sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t"
+        android:backgroundTint="@color/colorPrimary"
+        android:gravity="center"
+        android:hint="Enter Discount Code"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+</RelativeLayout>

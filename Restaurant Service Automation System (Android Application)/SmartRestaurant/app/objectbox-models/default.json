@@ -1,0 +1,74 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:1877659244056154563",
+      "lastPropertyId": "5:8352396010108685227",
+      "name": "PendingOrderProjectBox",
+      "properties": [
+        {
+          "id": "1:5850986491673478955",
+          "name": "Id"
+        },
+        {
+          "id": "2:4573718725899343074",
+          "name": "name"
+        },
+        {
+          "id": "3:7939488314800174901",
+          "name": "category_id"
+        },
+        {
+          "id": "4:2934662712938002514",
+          "name": "item_type"
+        },
+        {
+          "id": "5:8352396010108685227",
+          "name": "item_price"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:784913817573648703",
+      "lastPropertyId": "5:7917077654160890253",
+      "name": "CanceledOrderProjectBox",
+      "properties": [
+        {
+          "id": "1:4568870463197959156",
+          "name": "Id"
+        },
+        {
+          "id": "2:7603637839051698050",
+          "name": "name"
+        },
+        {
+          "id": "3:8639453100142771964",
+          "name": "category_id"
+        },
+        {
+          "id": "4:5546585254725446800",
+          "name": "item_type"
+        },
+        {
+          "id": "5:7917077654160890253",
+          "name": "item_price"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:784913817573648703",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
