@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "292895091468",
+    "firebase_url": "https://servicepluggeddemo.firebaseio.com",
+    "project_id": "servicepluggeddemo",
+    "storage_bucket": "servicepluggeddemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292895091468:android:0663e6f7dc38d226",
+        "android_client_info": {
+          "package_name": "plan9.hamza.serviceplugged"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292895091468-belu1c8vq7v7tk314p91vq8tmg2nct7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMDFw9OVrXZzIXCpcMV9dN2Yu0XgTRCYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
