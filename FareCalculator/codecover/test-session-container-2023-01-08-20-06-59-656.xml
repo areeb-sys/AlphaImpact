@@ -1,0 +1,1756 @@
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1673190419648" TestSessionContainerId="229b4d2d-fb58-4991-82c6-53a77c0867df" version="1.0">
+    <SrcFileList>
+        <SrcFile Content="package FareCalculator;&#13;&#10;&#13;&#10;import java.awt.Color;&#13;&#10;import java.awt.FlowLayout;&#13;&#10;import java.awt.GridLayout;&#13;&#10;import java.awt.event.ActionEvent;&#13;&#10;import java.awt.event.ActionListener;&#13;&#10;import java.io.FileWriter;&#13;&#10;import javax.swing.BorderFactory;&#13;&#10;import javax.swing.ButtonGroup;&#13;&#10;import javax.swing.JButton;&#13;&#10;import javax.swing.JCheckBox;&#13;&#10;import javax.swing.JComboBox;&#13;&#10;import javax.swing.JFrame;&#13;&#10;import javax.swing.JLabel;&#13;&#10;import javax.swing.JMenu;&#13;&#10;import javax.swing.JMenuBar;&#13;&#10;import javax.swing.JMenuItem;&#13;&#10;import javax.swing.JPanel;&#13;&#10;import javax.swing.JTextField;&#13;&#10;&#13;&#10;public class FareCalculator {&#13;&#10;    &#13;&#10;    private JFrame frame;&#13;&#10;    private JPanel panel;&#13;&#10;    &#13;&#10;    private JMenuBar menuBar;&#13;&#10;    private JMenu menu;&#13;&#10;    private JMenuItem red;&#13;&#10;    private JMenuItem green;&#13;&#10;    private JMenuItem yellow;&#13;&#10;    &#13;&#10;    private JLabel departLabel;&#13;&#10;    private JLabel StateLabel;&#13;&#10;    private JComboBox departCombo;&#13;&#10;    private JComboBox StateCombo;&#13;&#10;    &#13;&#10;    &#13;&#10;    private JLabel Class;&#13;&#10;    private JCheckBox economy;&#13;&#10;    private JCheckBox AC;&#13;&#10;    private ButtonGroup bGroup;&#13;&#10;    &#13;&#10;    private JLabel arrLabel;&#13;&#10;    private JComboBox arrCombo;&#13;&#10;    &#13;&#10;    private JLabel seatLabel;&#13;&#10;    private JTextField seatText;&#13;&#10;    &#13;&#10;    private JButton computeFare;&#13;&#10;    &#13;&#10;    private JLabel totalFare;&#13;&#10;    private JTextField totalFareText;&#13;&#10;&#13;&#10;//    private void StateComboActionPerformed(java.awt.event.ActionEvent evt)&#13;&#10;//    {&#13;&#10;//    &#9;if(StateCombo.getSelectedItem()==&quot;Punjab&quot;)&#13;&#10;//        {&#13;&#10;//    &#9;&#9;departCombo.addItem(null);&#13;&#10;//    &#9;&#9;departCombo.addItem(&quot;a&quot;);&#13;&#10;//            departCombo.addItem(&quot;b&quot;);&#13;&#10;//            &#13;&#10;//        }&#13;&#10;//        else&#13;&#10;//        {&#13;&#10;//        &#9;departCombo.addItem(&quot;c&quot;);&#13;&#10;//            departCombo.addItem(&quot;d&quot;);&#13;&#10;//            &#13;&#10;//        }&#13;&#10;//    }&#13;&#10;    public static void main(String[] args) {&#13;&#10;        &#13;&#10;        new FareCalculator();&#13;&#10;        &#13;&#10;    }&#13;&#10;    &#13;&#10;    public FareCalculator () {&#13;&#10;        &#13;&#10;        frame = new JFrame (&quot;Fare Calculator&quot;);&#13;&#10;        frame.setLayout(new GridLayout(0, 1));&#13;&#10;        panel = new JPanel();&#13;&#10;        JPanel panel1 = new JPanel();&#13;&#10;        JPanel panel2 = new JPanel();&#13;&#10;        JPanel panel3 = new JPanel();&#13;&#10;        &#13;&#10;        &#13;&#10;        menuBar = new JMenuBar();&#13;&#10;        menu = new JMenu(&quot;Background&quot;);&#13;&#10;        red = new JMenuItem(&quot;RED&quot;);&#13;&#10;        green = new JMenuItem(&quot;Green&quot;);&#13;&#10;        yellow = new JMenuItem(&quot;Yellow&quot;);&#13;&#10;        menu.add(red);&#13;&#10;        menu.add(green);&#13;&#10;        menu.add(yellow);&#13;&#10;        menuBar.add(menu);&#13;&#10;        &#13;&#10;        GridLayout grdLayout = new GridLayout(0, 2);&#13;&#10;        &#13;&#10;        red.addActionListener(new ActionListener() {&#13;&#10;            @Override&#13;&#10;            public void actionPerformed(ActionEvent e) {&#13;&#10;                panel.setBackground(Color.red);&#13;&#10;                panel1.setBackground(Color.red);&#13;&#10;                panel2.setBackground(Color.red);&#13;&#10;                panel3.setBackground(Color.red);&#13;&#10;            }&#13;&#10;        });&#13;&#10;        &#13;&#10;        green.addActionListener(new ActionListener() {&#13;&#10;            @Override&#13;&#10;            public void actionPerformed(ActionEvent e) {&#13;&#10;                panel.setBackground(Color.green);&#13;&#10;                panel1.setBackground(Color.green);&#13;&#10;                panel2.setBackground(Color.green);&#13;&#10;                panel3.setBackground(Color.green);&#13;&#10;            }&#13;&#10;        });&#13;&#10;   &#13;&#10;        yellow.addActionListener(new ActionListener() {&#13;&#10;            @Override&#13;&#10;            public void actionPerformed(ActionEvent e) {&#13;&#10;                panel.setBackground(Color.yellow);&#13;&#10;                panel1.setBackground(Color.yellow);&#13;&#10;                panel2.setBackground(Color.yellow);&#13;&#10;                panel3.setBackground(Color.yellow);&#13;&#10;            }&#13;&#10;          &#13;&#10;        });&#13;&#10;     &#13;&#10;        &#13;&#10;        departLabel = new JLabel(&quot;Departure city: &quot;);&#13;&#10;        StateLabel =new JLabel(&quot;State: &quot;);&#13;&#10;        StateCombo= new JComboBox();&#13;&#10;        StateCombo.addItem(null);&#13;&#10;        StateCombo.addItem(&quot;Khyber Pakhtunkhwa&quot;);&#13;&#10;        StateCombo.addItem(&quot;Punjab&quot;);&#13;&#10;        departCombo = new JComboBox();&#13;&#10;        //departCombo.addItem(&quot;a&quot;);&#13;&#10;       &#13;&#10;        &#13;&#10;        Class = new JLabel(&quot;Class&quot;);&#13;&#10;        economy = new JCheckBox(&quot;Economy&quot;);&#13;&#10;        AC = new JCheckBox(&quot;AC&quot;);&#13;&#10;        bGroup = new ButtonGroup();&#13;&#10;        bGroup.add(economy);&#13;&#10;        bGroup.add(AC);&#13;&#10;        StateCombo.addActionListener(new ActionListener() {&#13;&#10;            @Override&#13;&#10;            public void actionPerformed(ActionEvent e) {&#13;&#10;            &#9;if(StateCombo.getSelectedItem()==&quot;Punjab&quot;)&#13;&#10;                  {&#13;&#10;            &#9;&#9;departCombo.removeAllItems();&#13;&#10;            &#9;&#9;&#13;&#10;              &#9;&#9;departCombo.addItem(&quot;Lahore&quot;);&#13;&#10;                      &#13;&#10;                      &#13;&#10;                  }&#13;&#10;                  else&#13;&#10;                  {&#13;&#10;                &#9;  departCombo.removeAllItems();&#13;&#10;              &#9;&#9;&#13;&#10;                  &#9;departCombo.addItem(&quot;Peshawar&quot;);&#13;&#10;                     &#13;&#10;                      &#13;&#10;                  }&#13;&#10;&#13;&#10;            }&#13;&#10;        });&#13;&#10;        &#13;&#10;        arrLabel = new JLabel(&quot;Arrival City: &quot;);&#13;&#10;        arrCombo = new JComboBox();&#13;&#10;        arrCombo.addItem(&quot;Islamabad&quot;);&#13;&#10;        arrCombo.addItem(&quot;Gujranwala&quot;);&#13;&#10;        arrCombo.addItem(&quot;Faisalabad&quot;);&#13;&#10;        &#13;&#10;        seatLabel = new JLabel(&quot;Total Seats&quot;);&#13;&#10;        seatText = new JTextField(&quot;&quot;);&#13;&#10;        &#13;&#10;        computeFare = new JButton(&quot;Compute Fare&quot;);&#13;&#10;        &#13;&#10;        computeFare.addActionListener(new ActionListener() {&#13;&#10;            @Override&#13;&#10;            public void actionPerformed(ActionEvent e) {&#13;&#10;                int eco = 0;&#13;&#10;                int acClass = 0;&#13;&#10;                int seatNum = 0;&#13;&#10;                &#13;&#10;                try {&#13;&#10;                    if (seatText.getText().equals(&quot;&quot;)) {&#13;&#10;                        totalFareText.setText(&quot;missing input. Try Again&quot;);&#13;&#10;                    }&#13;&#10;                    else {&#13;&#10;                        seatNum = Integer.parseInt(seatText.getText().trim());&#13;&#10;                        if (departCombo.getSelectedItem() == &quot;Lahore&quot; ) {&#13;&#10;                            if (arrCombo.getSelectedItem() == &quot;Islamabad&quot;) {&#13;&#10;                                eco = 500;&#13;&#10;                                acClass = 1000;&#13;&#10;                                if (economy.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, eco*seatNum));&#13;&#10;                                }&#13;&#10;                                else if (AC.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, acClass*seatNum));&#13;&#10;                                }&#13;&#10;                                else {&#13;&#10;                                    totalFareText.setText(&quot;missing input. Try Again&quot;);&#13;&#10;                                }&#13;&#10;                            }&#13;&#10;                            else if (arrCombo.getSelectedItem() == &quot;Gujranwala&quot;) {&#13;&#10;                                eco = 600;&#13;&#10;                                acClass = 1500;&#13;&#10;                                if (economy.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, eco*seatNum));&#13;&#10;                                }&#13;&#10;                                else if (AC.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, acClass*seatNum));&#13;&#10;                                }&#13;&#10;                                else {&#13;&#10;                                    totalFareText.setText(&quot;missing input. Try Again&quot;);&#13;&#10;                                }&#13;&#10;                            }&#13;&#10;                            else if (arrCombo.getSelectedItem() == &quot;Faisalabad&quot;) {&#13;&#10;                                eco = 700;&#13;&#10;                                acClass = 200;&#13;&#10;                                if (economy.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, eco*seatNum));&#13;&#10;                                }&#13;&#10;                                else if (AC.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, acClass*seatNum));&#13;&#10;                                }&#13;&#10;                                else {&#13;&#10;                                    totalFareText.setText(&quot;missing input. Try Again&quot;);&#13;&#10;                                }&#13;&#10;                                &#13;&#10;                            }&#13;&#10;                        FileWriter file = new FileWriter(&quot;output.txt&quot;);&#13;&#10;                        file.write(totalFareText.getText());&#13;&#10;                        file.close();&#13;&#10;                        }&#13;&#10;                        &#13;&#10;                        else if (departCombo.getSelectedItem() == &quot;Peshawar&quot; ) {&#13;&#10;                            if (arrCombo.getSelectedItem() == &quot;Islamabad&quot;) {&#13;&#10;                                eco = 500;&#13;&#10;                                acClass = 1000;&#13;&#10;                                if (economy.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, eco*seatNum));&#13;&#10;                                }&#13;&#10;                                else if (AC.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, acClass*seatNum));&#13;&#10;                                }&#13;&#10;                                else {&#13;&#10;                                    totalFareText.setText(&quot;missing input. Try Again&quot;);&#13;&#10;                                }&#13;&#10;                            }&#13;&#10;                            else if (arrCombo.getSelectedItem() == &quot;Gujranwala&quot;) {&#13;&#10;                                eco = 600;&#13;&#10;                                acClass = 1500;&#13;&#10;                                if (economy.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, eco*seatNum));&#13;&#10;                                }&#13;&#10;                                else if (AC.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, acClass*seatNum));&#13;&#10;                                }&#13;&#10;                                else {&#13;&#10;                                    totalFareText.setText(&quot;missing input. Try Again&quot;);&#13;&#10;                                }&#13;&#10;                            }&#13;&#10;                            else if (arrCombo.getSelectedItem() == &quot;Faisalabad&quot;) {&#13;&#10;                                eco = 700;&#13;&#10;                                acClass = 200;&#13;&#10;                                if (economy.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, eco*seatNum));&#13;&#10;                                }&#13;&#10;                                else if (AC.isSelected()) {&#13;&#10;                                    totalFareText.setText(String.format(&quot;%d&quot;, acClass*seatNum));&#13;&#10;                                }&#13;&#10;                                else {&#13;&#10;                                    totalFareText.setText(&quot;missing input. Try Again&quot;);&#13;&#10;                                }&#13;&#10;                            }&#13;&#10;                        FileWriter file = new FileWriter(&quot;output.txt&quot;);&#13;&#10;                        file.write(totalFareText.getText());&#13;&#10;                        file.close();&#13;&#10;                        }&#13;&#10;                    }&#13;&#10;                } catch (Exception ex) {&#13;&#10;                    System.out.println(ex);&#13;&#10;                }&#13;&#10;            }   &#13;&#10;        });&#13;&#10;        &#13;&#10;        totalFare = new JLabel(&quot;Total Fare&quot;);&#13;&#10;        totalFareText = new JTextField(&quot;&quot;);&#13;&#10;        &#13;&#10;        frame.add(panel);&#13;&#10;        frame.add(panel1);&#13;&#10;        frame.add(panel3);&#13;&#10;        frame.add(panel2);&#13;&#10;&#13;&#10;        panel.setBorder(BorderFactory.createEmptyBorder(50, 50, 0, 50));&#13;&#10;        panel3.setBorder(BorderFactory.createEmptyBorder(50, 50, 0, 50));&#13;&#10;        panel.setLayout(grdLayout);&#13;&#10;        panel.add(StateLabel);&#13;&#10;        panel.add(StateCombo);&#13;&#10;        panel.add(departLabel);&#13;&#10;        &#13;&#10;        panel.add(departCombo);&#13;&#10;        panel1.add(Class);&#13;&#10;        panel1.add(economy);&#13;&#10;        panel1.add(AC);&#13;&#10;        panel.add(arrLabel);&#13;&#10;        panel.add(arrCombo);&#13;&#10;        panel.add(seatLabel);&#13;&#10;        panel.add(seatText);&#13;&#10;        panel2.setLayout(new FlowLayout());&#13;&#10;        panel2.add(computeFare);&#13;&#10;        panel3.add(totalFare);&#13;&#10;        panel3.add(totalFareText);&#13;&#10;        panel3.setLayout(new GridLayout(0, 2));&#13;&#10;        &#13;&#10;        frame.setBounds(0, 0, 800, 550);&#13;&#10;        frame.setJMenuBar(menuBar);&#13;&#10;        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#13;&#10;        frame.setVisible(true);&#13;&#10;        &#13;&#10;    }&#13;&#10;    &#13;&#10;}&#13;&#10;" Filename="FareCalculator.java" Intrnl_Id="1"/>
+    </SrcFileList>
+    <CritList>
+        <CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.QMOCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.SynchronizedStatementCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+    </CritList>
+    <BoolOpList/>
+    <HierarchyLvlTypeList>
+        <HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="2"/>
+        <HierarchyLvlType EnglishName="anonymous class" IntrnlName="class" Intrnl_Id="3"/>
+        <HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="4"/>
+        <HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="5"/>
+        <HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="6"/>
+    </HierarchyLvlTypeList>
+    <MASTRoot>
+        <HierarchyLvl HierarchyLvlId="79" HierarchyLvlTypeId="6" Intrnl_Id="7" Name="default package">
+            <Header/>
+            <LocList/>
+            <HierarchyLvl HierarchyLvlId="78" HierarchyLvlTypeId="2" Intrnl_Id="8" Name="FareCalculator">
+                <Header/>
+                <LocList/>
+                <HierarchyLvl HierarchyLvlId="77" HierarchyLvlTypeId="5" Intrnl_Id="9" Name="FareCalculator">
+                    <Header>
+                        <Loc EndOffset="604" SrcFileId="1" StartOffset="577"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="12357" SrcFileId="1" StartOffset="577"/>
+                    </LocList>
+                    <HierarchyLvl HierarchyLvlId="65" HierarchyLvlTypeId="4" Intrnl_Id="10" Name="main">
+                        <Header>
+                            <Loc EndOffset="1830" SrcFileId="1" StartOffset="1792"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="1890" SrcFileId="1" StartOffset="1792"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="11">
+                            <LocList>
+                                <Loc EndOffset="1873" SrcFileId="1" StartOffset="1852"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S1" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="12">
+                                <LocList>
+                                    <Loc EndOffset="1873" SrcFileId="1" StartOffset="1852"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="76" HierarchyLvlTypeId="4" Intrnl_Id="13" Name="FareCalculator">
+                        <Header>
+                            <Loc EndOffset="1926" SrcFileId="1" StartOffset="1902"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="12348" SrcFileId="1" StartOffset="1902"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="14">
+                            <LocList>
+                                <Loc EndOffset="1987" SrcFileId="1" StartOffset="1948"/>
+                                <Loc EndOffset="2035" SrcFileId="1" StartOffset="1997"/>
+                                <Loc EndOffset="2066" SrcFileId="1" StartOffset="2045"/>
+                                <Loc EndOffset="2105" SrcFileId="1" StartOffset="2076"/>
+                                <Loc EndOffset="2144" SrcFileId="1" StartOffset="2115"/>
+                                <Loc EndOffset="2183" SrcFileId="1" StartOffset="2154"/>
+                                <Loc EndOffset="2238" SrcFileId="1" StartOffset="2213"/>
+                                <Loc EndOffset="2279" SrcFileId="1" StartOffset="2248"/>
+                                <Loc EndOffset="2316" SrcFileId="1" StartOffset="2289"/>
+                                <Loc EndOffset="2357" SrcFileId="1" StartOffset="2326"/>
+                                <Loc EndOffset="2400" SrcFileId="1" StartOffset="2367"/>
+                                <Loc EndOffset="2424" SrcFileId="1" StartOffset="2410"/>
+                                <Loc EndOffset="2450" SrcFileId="1" StartOffset="2434"/>
+                                <Loc EndOffset="2477" SrcFileId="1" StartOffset="2460"/>
+                                <Loc EndOffset="2505" SrcFileId="1" StartOffset="2487"/>
+                                <Loc EndOffset="2569" SrcFileId="1" StartOffset="2525"/>
+                                <Loc EndOffset="2611" SrcFileId="1" StartOffset="2589"/>
+                                <Loc EndOffset="2941" SrcFileId="1" StartOffset="2939"/>
+                                <Loc EndOffset="2985" SrcFileId="1" StartOffset="2961"/>
+                                <Loc EndOffset="3323" SrcFileId="1" StartOffset="3321"/>
+                                <Loc EndOffset="3363" SrcFileId="1" StartOffset="3338"/>
+                                <Loc EndOffset="3717" SrcFileId="1" StartOffset="3715"/>
+                                <Loc EndOffset="3789" SrcFileId="1" StartOffset="3744"/>
+                                <Loc EndOffset="3833" SrcFileId="1" StartOffset="3799"/>
+                                <Loc EndOffset="3871" SrcFileId="1" StartOffset="3843"/>
+                                <Loc EndOffset="3906" SrcFileId="1" StartOffset="3881"/>
+                                <Loc EndOffset="3957" SrcFileId="1" StartOffset="3916"/>
+                                <Loc EndOffset="3996" SrcFileId="1" StartOffset="3967"/>
+                                <Loc EndOffset="4036" SrcFileId="1" StartOffset="4006"/>
+                                <Loc EndOffset="4130" SrcFileId="1" StartOffset="4102"/>
+                                <Loc EndOffset="4175" SrcFileId="1" StartOffset="4140"/>
+                                <Loc EndOffset="4210" SrcFileId="1" StartOffset="4185"/>
+                                <Loc EndOffset="4247" SrcFileId="1" StartOffset="4220"/>
+                                <Loc EndOffset="4277" SrcFileId="1" StartOffset="4257"/>
+                                <Loc EndOffset="4302" SrcFileId="1" StartOffset="4287"/>
+                                <Loc EndOffset="4341" SrcFileId="1" StartOffset="4312"/>
+                                <Loc EndOffset="4964" SrcFileId="1" StartOffset="4962"/>
+                                <Loc EndOffset="5024" SrcFileId="1" StartOffset="4984"/>
+                                <Loc EndOffset="5061" SrcFileId="1" StartOffset="5034"/>
+                                <Loc EndOffset="5101" SrcFileId="1" StartOffset="5071"/>
+                                <Loc EndOffset="5142" SrcFileId="1" StartOffset="5111"/>
+                                <Loc EndOffset="5183" SrcFileId="1" StartOffset="5152"/>
+                                <Loc EndOffset="5241" SrcFileId="1" StartOffset="5203"/>
+                                <Loc EndOffset="5281" SrcFileId="1" StartOffset="5251"/>
+                                <Loc EndOffset="5343" SrcFileId="1" StartOffset="5301"/>
+                                <Loc EndOffset="5393" SrcFileId="1" StartOffset="5363"/>
+                                <Loc EndOffset="11195" SrcFileId="1" StartOffset="11193"/>
+                                <Loc EndOffset="11252" SrcFileId="1" StartOffset="11215"/>
+                                <Loc EndOffset="11297" SrcFileId="1" StartOffset="11262"/>
+                                <Loc EndOffset="11334" SrcFileId="1" StartOffset="11317"/>
+                                <Loc EndOffset="11362" SrcFileId="1" StartOffset="11344"/>
+                                <Loc EndOffset="11390" SrcFileId="1" StartOffset="11372"/>
+                                <Loc EndOffset="11418" SrcFileId="1" StartOffset="11400"/>
+                                <Loc EndOffset="11494" SrcFileId="1" StartOffset="11430"/>
+                                <Loc EndOffset="11569" SrcFileId="1" StartOffset="11504"/>
+                                <Loc EndOffset="11606" SrcFileId="1" StartOffset="11579"/>
+                                <Loc EndOffset="11638" SrcFileId="1" StartOffset="11616"/>
+                                <Loc EndOffset="11670" SrcFileId="1" StartOffset="11648"/>
+                                <Loc EndOffset="11703" SrcFileId="1" StartOffset="11680"/>
+                                <Loc EndOffset="11746" SrcFileId="1" StartOffset="11723"/>
+                                <Loc EndOffset="11774" SrcFileId="1" StartOffset="11756"/>
+                                <Loc EndOffset="11804" SrcFileId="1" StartOffset="11784"/>
+                                <Loc EndOffset="11829" SrcFileId="1" StartOffset="11814"/>
+                                <Loc EndOffset="11859" SrcFileId="1" StartOffset="11839"/>
+                                <Loc EndOffset="11889" SrcFileId="1" StartOffset="11869"/>
+                                <Loc EndOffset="11920" SrcFileId="1" StartOffset="11899"/>
+                                <Loc EndOffset="11950" SrcFileId="1" StartOffset="11930"/>
+                                <Loc EndOffset="11995" SrcFileId="1" StartOffset="11960"/>
+                                <Loc EndOffset="12029" SrcFileId="1" StartOffset="12005"/>
+                                <Loc EndOffset="12061" SrcFileId="1" StartOffset="12039"/>
+                                <Loc EndOffset="12097" SrcFileId="1" StartOffset="12071"/>
+                                <Loc EndOffset="12146" SrcFileId="1" StartOffset="12107"/>
+                                <Loc EndOffset="12198" SrcFileId="1" StartOffset="12166"/>
+                                <Loc EndOffset="12235" SrcFileId="1" StartOffset="12208"/>
+                                <Loc EndOffset="12298" SrcFileId="1" StartOffset="12245"/>
+                                <Loc EndOffset="12331" SrcFileId="1" StartOffset="12308"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S2" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="15">
+                                <LocList>
+                                    <Loc EndOffset="1987" SrcFileId="1" StartOffset="1948"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S3" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="16">
+                                <LocList>
+                                    <Loc EndOffset="2035" SrcFileId="1" StartOffset="1997"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S4" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="17">
+                                <LocList>
+                                    <Loc EndOffset="2066" SrcFileId="1" StartOffset="2045"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S5" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="18">
+                                <LocList>
+                                    <Loc EndOffset="2105" SrcFileId="1" StartOffset="2076"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S6" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="19">
+                                <LocList>
+                                    <Loc EndOffset="2144" SrcFileId="1" StartOffset="2115"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S7" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="20">
+                                <LocList>
+                                    <Loc EndOffset="2183" SrcFileId="1" StartOffset="2154"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S8" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="21">
+                                <LocList>
+                                    <Loc EndOffset="2238" SrcFileId="1" StartOffset="2213"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S9" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="22">
+                                <LocList>
+                                    <Loc EndOffset="2279" SrcFileId="1" StartOffset="2248"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S10" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="23">
+                                <LocList>
+                                    <Loc EndOffset="2316" SrcFileId="1" StartOffset="2289"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S11" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="24">
+                                <LocList>
+                                    <Loc EndOffset="2357" SrcFileId="1" StartOffset="2326"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S12" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="25">
+                                <LocList>
+                                    <Loc EndOffset="2400" SrcFileId="1" StartOffset="2367"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S13" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="26">
+                                <LocList>
+                                    <Loc EndOffset="2424" SrcFileId="1" StartOffset="2410"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S14" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="27">
+                                <LocList>
+                                    <Loc EndOffset="2450" SrcFileId="1" StartOffset="2434"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S15" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="28">
+                                <LocList>
+                                    <Loc EndOffset="2477" SrcFileId="1" StartOffset="2460"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S16" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="29">
+                                <LocList>
+                                    <Loc EndOffset="2505" SrcFileId="1" StartOffset="2487"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S17" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="30">
+                                <LocList>
+                                    <Loc EndOffset="2569" SrcFileId="1" StartOffset="2525"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S18" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="31">
+                                <LocList>
+                                    <Loc EndOffset="2611" SrcFileId="1" StartOffset="2589"/>
+                                    <Loc EndOffset="2941" SrcFileId="1" StartOffset="2939"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S23" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="32">
+                                <LocList>
+                                    <Loc EndOffset="2985" SrcFileId="1" StartOffset="2961"/>
+                                    <Loc EndOffset="3323" SrcFileId="1" StartOffset="3321"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S28" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="33">
+                                <LocList>
+                                    <Loc EndOffset="3363" SrcFileId="1" StartOffset="3338"/>
+                                    <Loc EndOffset="3717" SrcFileId="1" StartOffset="3715"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S33" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="34">
+                                <LocList>
+                                    <Loc EndOffset="3789" SrcFileId="1" StartOffset="3744"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S34" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="35">
+                                <LocList>
+                                    <Loc EndOffset="3833" SrcFileId="1" StartOffset="3799"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S35" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="36">
+                                <LocList>
+                                    <Loc EndOffset="3871" SrcFileId="1" StartOffset="3843"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S36" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="37">
+                                <LocList>
+                                    <Loc EndOffset="3906" SrcFileId="1" StartOffset="3881"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S37" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="38">
+                                <LocList>
+                                    <Loc EndOffset="3957" SrcFileId="1" StartOffset="3916"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S38" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="39">
+                                <LocList>
+                                    <Loc EndOffset="3996" SrcFileId="1" StartOffset="3967"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S39" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="40">
+                                <LocList>
+                                    <Loc EndOffset="4036" SrcFileId="1" StartOffset="4006"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S40" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="41">
+                                <LocList>
+                                    <Loc EndOffset="4130" SrcFileId="1" StartOffset="4102"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S41" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="42">
+                                <LocList>
+                                    <Loc EndOffset="4175" SrcFileId="1" StartOffset="4140"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S42" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="43">
+                                <LocList>
+                                    <Loc EndOffset="4210" SrcFileId="1" StartOffset="4185"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S43" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="44">
+                                <LocList>
+                                    <Loc EndOffset="4247" SrcFileId="1" StartOffset="4220"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S44" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="45">
+                                <LocList>
+                                    <Loc EndOffset="4277" SrcFileId="1" StartOffset="4257"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S45" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="46">
+                                <LocList>
+                                    <Loc EndOffset="4302" SrcFileId="1" StartOffset="4287"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S46" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="47">
+                                <LocList>
+                                    <Loc EndOffset="4341" SrcFileId="1" StartOffset="4312"/>
+                                    <Loc EndOffset="4964" SrcFileId="1" StartOffset="4962"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S52" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="48">
+                                <LocList>
+                                    <Loc EndOffset="5024" SrcFileId="1" StartOffset="4984"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S53" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="49">
+                                <LocList>
+                                    <Loc EndOffset="5061" SrcFileId="1" StartOffset="5034"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S54" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="50">
+                                <LocList>
+                                    <Loc EndOffset="5101" SrcFileId="1" StartOffset="5071"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S55" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="51">
+                                <LocList>
+                                    <Loc EndOffset="5142" SrcFileId="1" StartOffset="5111"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S56" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="52">
+                                <LocList>
+                                    <Loc EndOffset="5183" SrcFileId="1" StartOffset="5152"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S57" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="53">
+                                <LocList>
+                                    <Loc EndOffset="5241" SrcFileId="1" StartOffset="5203"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S58" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="54">
+                                <LocList>
+                                    <Loc EndOffset="5281" SrcFileId="1" StartOffset="5251"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S59" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="55">
+                                <LocList>
+                                    <Loc EndOffset="5343" SrcFileId="1" StartOffset="5301"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S60" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="56">
+                                <LocList>
+                                    <Loc EndOffset="5393" SrcFileId="1" StartOffset="5363"/>
+                                    <Loc EndOffset="11195" SrcFileId="1" StartOffset="11193"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S125" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="57">
+                                <LocList>
+                                    <Loc EndOffset="11252" SrcFileId="1" StartOffset="11215"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S126" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="58">
+                                <LocList>
+                                    <Loc EndOffset="11297" SrcFileId="1" StartOffset="11262"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S127" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="59">
+                                <LocList>
+                                    <Loc EndOffset="11334" SrcFileId="1" StartOffset="11317"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S128" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="60">
+                                <LocList>
+                                    <Loc EndOffset="11362" SrcFileId="1" StartOffset="11344"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S129" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="61">
+                                <LocList>
+                                    <Loc EndOffset="11390" SrcFileId="1" StartOffset="11372"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S130" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="62">
+                                <LocList>
+                                    <Loc EndOffset="11418" SrcFileId="1" StartOffset="11400"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S131" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="63">
+                                <LocList>
+                                    <Loc EndOffset="11494" SrcFileId="1" StartOffset="11430"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S132" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="64">
+                                <LocList>
+                                    <Loc EndOffset="11569" SrcFileId="1" StartOffset="11504"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S133" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="65">
+                                <LocList>
+                                    <Loc EndOffset="11606" SrcFileId="1" StartOffset="11579"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S134" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="66">
+                                <LocList>
+                                    <Loc EndOffset="11638" SrcFileId="1" StartOffset="11616"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S135" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="67">
+                                <LocList>
+                                    <Loc EndOffset="11670" SrcFileId="1" StartOffset="11648"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S136" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="68">
+                                <LocList>
+                                    <Loc EndOffset="11703" SrcFileId="1" StartOffset="11680"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S137" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="69">
+                                <LocList>
+                                    <Loc EndOffset="11746" SrcFileId="1" StartOffset="11723"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S138" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="70">
+                                <LocList>
+                                    <Loc EndOffset="11774" SrcFileId="1" StartOffset="11756"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S139" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="71">
+                                <LocList>
+                                    <Loc EndOffset="11804" SrcFileId="1" StartOffset="11784"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S140" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="72">
+                                <LocList>
+                                    <Loc EndOffset="11829" SrcFileId="1" StartOffset="11814"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S141" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="73">
+                                <LocList>
+                                    <Loc EndOffset="11859" SrcFileId="1" StartOffset="11839"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S142" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="74">
+                                <LocList>
+                                    <Loc EndOffset="11889" SrcFileId="1" StartOffset="11869"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S143" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="75">
+                                <LocList>
+                                    <Loc EndOffset="11920" SrcFileId="1" StartOffset="11899"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S144" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="76">
+                                <LocList>
+                                    <Loc EndOffset="11950" SrcFileId="1" StartOffset="11930"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S145" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="77">
+                                <LocList>
+                                    <Loc EndOffset="11995" SrcFileId="1" StartOffset="11960"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S146" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="78">
+                                <LocList>
+                                    <Loc EndOffset="12029" SrcFileId="1" StartOffset="12005"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S147" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="79">
+                                <LocList>
+                                    <Loc EndOffset="12061" SrcFileId="1" StartOffset="12039"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S148" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="80">
+                                <LocList>
+                                    <Loc EndOffset="12097" SrcFileId="1" StartOffset="12071"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S149" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="81">
+                                <LocList>
+                                    <Loc EndOffset="12146" SrcFileId="1" StartOffset="12107"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S150" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="82">
+                                <LocList>
+                                    <Loc EndOffset="12198" SrcFileId="1" StartOffset="12166"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S151" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="83">
+                                <LocList>
+                                    <Loc EndOffset="12235" SrcFileId="1" StartOffset="12208"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S152" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="84">
+                                <LocList>
+                                    <Loc EndOffset="12298" SrcFileId="1" StartOffset="12245"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S153" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="85">
+                                <LocList>
+                                    <Loc EndOffset="12331" SrcFileId="1" StartOffset="12308"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                        <HierarchyLvl HierarchyLvlId="67" HierarchyLvlTypeId="3" Intrnl_Id="86" Name="ActionListener">
+                            <Header>
+                                <Loc EndOffset="2631" SrcFileId="1" StartOffset="2615"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="2939" SrcFileId="1" StartOffset="2611"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="66" HierarchyLvlTypeId="4" Intrnl_Id="87" Name="actionPerformed">
+                                <Header>
+                                    <Loc EndOffset="2712" SrcFileId="1" StartOffset="2647"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="2928" SrcFileId="1" StartOffset="2647"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="88">
+                                    <LocList>
+                                        <Loc EndOffset="2763" SrcFileId="1" StartOffset="2732"/>
+                                        <Loc EndOffset="2813" SrcFileId="1" StartOffset="2781"/>
+                                        <Loc EndOffset="2863" SrcFileId="1" StartOffset="2831"/>
+                                        <Loc EndOffset="2913" SrcFileId="1" StartOffset="2881"/>
+                                    </LocList>
+                                    <BasicStmnt CovItemId="S19" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="89">
+                                        <LocList>
+                                            <Loc EndOffset="2763" SrcFileId="1" StartOffset="2732"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S20" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="90">
+                                        <LocList>
+                                            <Loc EndOffset="2813" SrcFileId="1" StartOffset="2781"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S21" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="91">
+                                        <LocList>
+                                            <Loc EndOffset="2863" SrcFileId="1" StartOffset="2831"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S22" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="92">
+                                        <LocList>
+                                            <Loc EndOffset="2913" SrcFileId="1" StartOffset="2881"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                        <HierarchyLvl HierarchyLvlId="69" HierarchyLvlTypeId="3" Intrnl_Id="93" Name="ActionListener">
+                            <Header>
+                                <Loc EndOffset="3005" SrcFileId="1" StartOffset="2989"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="3321" SrcFileId="1" StartOffset="2985"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="68" HierarchyLvlTypeId="4" Intrnl_Id="94" Name="actionPerformed">
+                                <Header>
+                                    <Loc EndOffset="3086" SrcFileId="1" StartOffset="3021"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="3310" SrcFileId="1" StartOffset="3021"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="95">
+                                    <LocList>
+                                        <Loc EndOffset="3139" SrcFileId="1" StartOffset="3106"/>
+                                        <Loc EndOffset="3191" SrcFileId="1" StartOffset="3157"/>
+                                        <Loc EndOffset="3243" SrcFileId="1" StartOffset="3209"/>
+                                        <Loc EndOffset="3295" SrcFileId="1" StartOffset="3261"/>
+                                    </LocList>
+                                    <BasicStmnt CovItemId="S24" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="96">
+                                        <LocList>
+                                            <Loc EndOffset="3139" SrcFileId="1" StartOffset="3106"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S25" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="97">
+                                        <LocList>
+                                            <Loc EndOffset="3191" SrcFileId="1" StartOffset="3157"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S26" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="98">
+                                        <LocList>
+                                            <Loc EndOffset="3243" SrcFileId="1" StartOffset="3209"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S27" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="99">
+                                        <LocList>
+                                            <Loc EndOffset="3295" SrcFileId="1" StartOffset="3261"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                        <HierarchyLvl HierarchyLvlId="71" HierarchyLvlTypeId="3" Intrnl_Id="100" Name="ActionListener">
+                            <Header>
+                                <Loc EndOffset="3383" SrcFileId="1" StartOffset="3367"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="3715" SrcFileId="1" StartOffset="3363"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="70" HierarchyLvlTypeId="4" Intrnl_Id="101" Name="actionPerformed">
+                                <Header>
+                                    <Loc EndOffset="3464" SrcFileId="1" StartOffset="3399"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="3692" SrcFileId="1" StartOffset="3399"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="102">
+                                    <LocList>
+                                        <Loc EndOffset="3518" SrcFileId="1" StartOffset="3484"/>
+                                        <Loc EndOffset="3571" SrcFileId="1" StartOffset="3536"/>
+                                        <Loc EndOffset="3624" SrcFileId="1" StartOffset="3589"/>
+                                        <Loc EndOffset="3677" SrcFileId="1" StartOffset="3642"/>
+                                    </LocList>
+                                    <BasicStmnt CovItemId="S29" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="103">
+                                        <LocList>
+                                            <Loc EndOffset="3518" SrcFileId="1" StartOffset="3484"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S30" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="104">
+                                        <LocList>
+                                            <Loc EndOffset="3571" SrcFileId="1" StartOffset="3536"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S31" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="105">
+                                        <LocList>
+                                            <Loc EndOffset="3624" SrcFileId="1" StartOffset="3589"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S32" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="106">
+                                        <LocList>
+                                            <Loc EndOffset="3677" SrcFileId="1" StartOffset="3642"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                        <HierarchyLvl HierarchyLvlId="73" HierarchyLvlTypeId="3" Intrnl_Id="107" Name="ActionListener">
+                            <Header>
+                                <Loc EndOffset="4361" SrcFileId="1" StartOffset="4345"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="4962" SrcFileId="1" StartOffset="4341"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="72" HierarchyLvlTypeId="4" Intrnl_Id="108" Name="actionPerformed">
+                                <Header>
+                                    <Loc EndOffset="4442" SrcFileId="1" StartOffset="4377"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="4951" SrcFileId="1" StartOffset="4377"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="109">
+                                    <LocList>
+                                        <Loc EndOffset="4934" SrcFileId="1" StartOffset="4459"/>
+                                    </LocList>
+                                    <CondStmnt CovItemId="S47" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="110">
+                                        <Branch CovItemId="B1" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="111">
+                                            <Cond/>
+                                            <LocList>
+                                                <Loc EndOffset="4700" SrcFileId="1" StartOffset="4521"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="112">
+                                                <LocList>
+                                                    <Loc EndOffset="4567" SrcFileId="1" StartOffset="4538"/>
+                                                    <Loc EndOffset="4631" SrcFileId="1" StartOffset="4601"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S48" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="113">
+                                                    <LocList>
+                                                        <Loc EndOffset="4567" SrcFileId="1" StartOffset="4538"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S49" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="114">
+                                                    <LocList>
+                                                        <Loc EndOffset="4631" SrcFileId="1" StartOffset="4601"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B2" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="115">
+                                            <Cond>
+                                                <Loc EndOffset="4724" SrcFileId="1" StartOffset="4720"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="4934" SrcFileId="1" StartOffset="4744"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="116">
+                                                <LocList>
+                                                    <Loc EndOffset="4795" SrcFileId="1" StartOffset="4766"/>
+                                                    <Loc EndOffset="4866" SrcFileId="1" StartOffset="4834"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S50" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="117">
+                                                    <LocList>
+                                                        <Loc EndOffset="4795" SrcFileId="1" StartOffset="4766"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S51" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="118">
+                                                    <LocList>
+                                                        <Loc EndOffset="4866" SrcFileId="1" StartOffset="4834"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="4461" SrcFileId="1" StartOffset="4459"/>
+                                        <LocList>
+                                            <Loc EndOffset="4934" SrcFileId="1" StartOffset="4459"/>
+                                        </LocList>
+                                        <RootTerm CovItemId="C1" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="119">
+                                            <BasicBoolTerm Intrnl_Id="120">
+                                                <LocList>
+                                                    <Loc EndOffset="4500" SrcFileId="1" StartOffset="4462"/>
+                                                </LocList>
+                                            </BasicBoolTerm>
+                                        </RootTerm>
+                                    </CondStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                        <HierarchyLvl HierarchyLvlId="75" HierarchyLvlTypeId="3" Intrnl_Id="121" Name="ActionListener">
+                            <Header>
+                                <Loc EndOffset="5413" SrcFileId="1" StartOffset="5397"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="11193" SrcFileId="1" StartOffset="5393"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="74" HierarchyLvlTypeId="4" Intrnl_Id="122" Name="actionPerformed">
+                                <Header>
+                                    <Loc EndOffset="5494" SrcFileId="1" StartOffset="5429"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="11179" SrcFileId="1" StartOffset="5429"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="123">
+                                    <LocList>
+                                        <Loc EndOffset="5526" SrcFileId="1" StartOffset="5514"/>
+                                        <Loc EndOffset="5560" SrcFileId="1" StartOffset="5544"/>
+                                        <Loc EndOffset="5594" SrcFileId="1" StartOffset="5578"/>
+                                        <Loc EndOffset="11058" SrcFileId="1" StartOffset="5657"/>
+                                        <Loc EndOffset="11164" SrcFileId="1" StartOffset="5630"/>
+                                    </LocList>
+                                    <BasicStmnt CovItemId="S61" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="124">
+                                        <LocList>
+                                            <Loc EndOffset="5526" SrcFileId="1" StartOffset="5514"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S62" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="125">
+                                        <LocList>
+                                            <Loc EndOffset="5560" SrcFileId="1" StartOffset="5544"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S63" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="126">
+                                        <LocList>
+                                            <Loc EndOffset="5594" SrcFileId="1" StartOffset="5578"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <CondStmnt CovItemId="S65" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="127">
+                                        <Branch CovItemId="B4" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="128">
+                                            <Cond/>
+                                            <LocList>
+                                                <Loc EndOffset="5792" SrcFileId="1" StartOffset="5692"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="129">
+                                                <LocList>
+                                                    <Loc EndOffset="5769" SrcFileId="1" StartOffset="5719"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S66" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="130">
+                                                    <LocList>
+                                                        <Loc EndOffset="5769" SrcFileId="1" StartOffset="5719"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B5" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="131">
+                                            <Cond>
+                                                <Loc EndOffset="5818" SrcFileId="1" StartOffset="5814"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="11058" SrcFileId="1" StartOffset="5819"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="132">
+                                                <LocList>
+                                                    <Loc EndOffset="5900" SrcFileId="1" StartOffset="5846"/>
+                                                    <Loc EndOffset="11035" SrcFileId="1" StartOffset="5926"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S67" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="133">
+                                                    <LocList>
+                                                        <Loc EndOffset="5900" SrcFileId="1" StartOffset="5846"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <CondStmnt CovItemId="S68" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="134">
+                                                    <Branch CovItemId="B6" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="135">
+                                                        <Cond/>
+                                                        <LocList>
+                                                            <Loc EndOffset="8468" SrcFileId="1" StartOffset="5974"/>
+                                                        </LocList>
+                                                        <StmntSeq Intrnl_Id="136">
+                                                            <LocList>
+                                                                <Loc EndOffset="8267" SrcFileId="1" StartOffset="6005"/>
+                                                                <Loc EndOffset="8340" SrcFileId="1" StartOffset="8293"/>
+                                                                <Loc EndOffset="8402" SrcFileId="1" StartOffset="8366"/>
+                                                                <Loc EndOffset="8441" SrcFileId="1" StartOffset="8428"/>
+                                                            </LocList>
+                                                            <CondStmnt CovItemId="S69" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="137">
+                                                                <Branch CovItemId="B8" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="138">
+                                                                    <Cond/>
+                                                                    <LocList>
+                                                                        <Loc EndOffset="6724" SrcFileId="1" StartOffset="6052"/>
+                                                                    </LocList>
+                                                                    <StmntSeq Intrnl_Id="139">
+                                                                        <LocList>
+                                                                            <Loc EndOffset="6097" SrcFileId="1" StartOffset="6087"/>
+                                                                            <Loc EndOffset="6146" SrcFileId="1" StartOffset="6131"/>
+                                                                            <Loc EndOffset="6693" SrcFileId="1" StartOffset="6180"/>
+                                                                        </LocList>
+                                                                        <BasicStmnt CovItemId="S70" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="140">
+                                                                            <LocList>
+                                                                                <Loc EndOffset="6097" SrcFileId="1" StartOffset="6087"/>
+                                                                            </LocList>
+                                                                        </BasicStmnt>
+                                                                        <BasicStmnt CovItemId="S71" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="141">
+                                                                            <LocList>
+                                                                                <Loc EndOffset="6146" SrcFileId="1" StartOffset="6131"/>
+                                                                            </LocList>
+                                                                        </BasicStmnt>
+                                                                        <CondStmnt CovItemId="S72" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="142">
+                                                                            <Branch CovItemId="B10" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="143">
+                                                                                <Cond/>
+                                                                                <LocList>
+                                                                                    <Loc EndOffset="6336" SrcFileId="1" StartOffset="6206"/>
+                                                                                </LocList>
+                                                                                <StmntSeq Intrnl_Id="144">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="6301" SrcFileId="1" StartOffset="6245"/>
+                                                                                    </LocList>
+                                                                                    <BasicStmnt CovItemId="S73" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="145">
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="6301" SrcFileId="1" StartOffset="6245"/>
+                                                                                        </LocList>
+                                                                                    </BasicStmnt>
+                                                                                </StmntSeq>
+                                                                            </Branch>
+                                                                            <Branch CovItemId="B11" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="146">
+                                                                                <Cond>
+                                                                                    <Loc EndOffset="6374" SrcFileId="1" StartOffset="6370"/>
+                                                                                </Cond>
+                                                                                <LocList>
+                                                                                    <Loc EndOffset="6693" SrcFileId="1" StartOffset="6375"/>
+                                                                                </LocList>
+                                                                                <StmntSeq Intrnl_Id="147">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="6693" SrcFileId="1" StartOffset="6375"/>
+                                                                                    </LocList>
+                                                                                    <CondStmnt CovItemId="S74" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="148">
+                                                                                        <Branch CovItemId="B12" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="149">
+                                                                                            <Cond/>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="6530" SrcFileId="1" StartOffset="6396"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="150">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="6495" SrcFileId="1" StartOffset="6435"/>
+                                                                                                </LocList>
+                                                                                                <BasicStmnt CovItemId="S75" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="151">
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="6495" SrcFileId="1" StartOffset="6435"/>
+                                                                                                    </LocList>
+                                                                                                </BasicStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Branch CovItemId="B13" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="152">
+                                                                                            <Cond>
+                                                                                                <Loc EndOffset="6568" SrcFileId="1" StartOffset="6564"/>
+                                                                                            </Cond>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="6693" SrcFileId="1" StartOffset="6569"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="153">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="6658" SrcFileId="1" StartOffset="6608"/>
+                                                                                                </LocList>
+                                                                                                <BasicStmnt CovItemId="S76" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="154">
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="6658" SrcFileId="1" StartOffset="6608"/>
+                                                                                                    </LocList>
+                                                                                                </BasicStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Keyword EndOffset="6377" SrcFileId="1" StartOffset="6375"/>
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="6693" SrcFileId="1" StartOffset="6375"/>
+                                                                                        </LocList>
+                                                                                        <RootTerm CovItemId="C6" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="155">
+                                                                                            <BasicBoolTerm Intrnl_Id="156">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="6394" SrcFileId="1" StartOffset="6379"/>
+                                                                                                </LocList>
+                                                                                            </BasicBoolTerm>
+                                                                                        </RootTerm>
+                                                                                    </CondStmnt>
+                                                                                </StmntSeq>
+                                                                            </Branch>
+                                                                            <Keyword EndOffset="6182" SrcFileId="1" StartOffset="6180"/>
+                                                                            <LocList>
+                                                                                <Loc EndOffset="6693" SrcFileId="1" StartOffset="6180"/>
+                                                                            </LocList>
+                                                                            <RootTerm CovItemId="C5" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="157">
+                                                                                <BasicBoolTerm Intrnl_Id="158">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="6204" SrcFileId="1" StartOffset="6184"/>
+                                                                                    </LocList>
+                                                                                </BasicBoolTerm>
+                                                                            </RootTerm>
+                                                                        </CondStmnt>
+                                                                    </StmntSeq>
+                                                                </Branch>
+                                                                <Branch CovItemId="B9" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="159">
+                                                                    <Cond>
+                                                                        <Loc EndOffset="6758" SrcFileId="1" StartOffset="6754"/>
+                                                                    </Cond>
+                                                                    <LocList>
+                                                                        <Loc EndOffset="8267" SrcFileId="1" StartOffset="6759"/>
+                                                                    </LocList>
+                                                                    <StmntSeq Intrnl_Id="160">
+                                                                        <LocList>
+                                                                            <Loc EndOffset="8267" SrcFileId="1" StartOffset="6759"/>
+                                                                        </LocList>
+                                                                        <CondStmnt CovItemId="S77" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="161">
+                                                                            <Branch CovItemId="B14" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="162">
+                                                                                <Cond/>
+                                                                                <LocList>
+                                                                                    <Loc EndOffset="7479" SrcFileId="1" StartOffset="6807"/>
+                                                                                </LocList>
+                                                                                <StmntSeq Intrnl_Id="163">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="6852" SrcFileId="1" StartOffset="6842"/>
+                                                                                        <Loc EndOffset="6901" SrcFileId="1" StartOffset="6886"/>
+                                                                                        <Loc EndOffset="7448" SrcFileId="1" StartOffset="6935"/>
+                                                                                    </LocList>
+                                                                                    <BasicStmnt CovItemId="S78" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="164">
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="6852" SrcFileId="1" StartOffset="6842"/>
+                                                                                        </LocList>
+                                                                                    </BasicStmnt>
+                                                                                    <BasicStmnt CovItemId="S79" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="165">
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="6901" SrcFileId="1" StartOffset="6886"/>
+                                                                                        </LocList>
+                                                                                    </BasicStmnt>
+                                                                                    <CondStmnt CovItemId="S80" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="166">
+                                                                                        <Branch CovItemId="B16" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="167">
+                                                                                            <Cond/>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="7091" SrcFileId="1" StartOffset="6961"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="168">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="7056" SrcFileId="1" StartOffset="7000"/>
+                                                                                                </LocList>
+                                                                                                <BasicStmnt CovItemId="S81" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="169">
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="7056" SrcFileId="1" StartOffset="7000"/>
+                                                                                                    </LocList>
+                                                                                                </BasicStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Branch CovItemId="B17" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="170">
+                                                                                            <Cond>
+                                                                                                <Loc EndOffset="7129" SrcFileId="1" StartOffset="7125"/>
+                                                                                            </Cond>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="7448" SrcFileId="1" StartOffset="7130"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="171">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="7448" SrcFileId="1" StartOffset="7130"/>
+                                                                                                </LocList>
+                                                                                                <CondStmnt CovItemId="S82" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="172">
+                                                                                                    <Branch CovItemId="B18" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="173">
+                                                                                                        <Cond/>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="7285" SrcFileId="1" StartOffset="7151"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="174">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="7250" SrcFileId="1" StartOffset="7190"/>
+                                                                                                            </LocList>
+                                                                                                            <BasicStmnt CovItemId="S83" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="175">
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="7250" SrcFileId="1" StartOffset="7190"/>
+                                                                                                                </LocList>
+                                                                                                            </BasicStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Branch CovItemId="B19" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="176">
+                                                                                                        <Cond>
+                                                                                                            <Loc EndOffset="7323" SrcFileId="1" StartOffset="7319"/>
+                                                                                                        </Cond>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="7448" SrcFileId="1" StartOffset="7324"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="177">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="7413" SrcFileId="1" StartOffset="7363"/>
+                                                                                                            </LocList>
+                                                                                                            <BasicStmnt CovItemId="S84" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="178">
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="7413" SrcFileId="1" StartOffset="7363"/>
+                                                                                                                </LocList>
+                                                                                                            </BasicStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Keyword EndOffset="7132" SrcFileId="1" StartOffset="7130"/>
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="7448" SrcFileId="1" StartOffset="7130"/>
+                                                                                                    </LocList>
+                                                                                                    <RootTerm CovItemId="C9" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="179">
+                                                                                                        <BasicBoolTerm Intrnl_Id="180">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="7149" SrcFileId="1" StartOffset="7134"/>
+                                                                                                            </LocList>
+                                                                                                        </BasicBoolTerm>
+                                                                                                    </RootTerm>
+                                                                                                </CondStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Keyword EndOffset="6937" SrcFileId="1" StartOffset="6935"/>
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="7448" SrcFileId="1" StartOffset="6935"/>
+                                                                                        </LocList>
+                                                                                        <RootTerm CovItemId="C8" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="181">
+                                                                                            <BasicBoolTerm Intrnl_Id="182">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="6959" SrcFileId="1" StartOffset="6939"/>
+                                                                                                </LocList>
+                                                                                            </BasicBoolTerm>
+                                                                                        </RootTerm>
+                                                                                    </CondStmnt>
+                                                                                </StmntSeq>
+                                                                            </Branch>
+                                                                            <Branch CovItemId="B15" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="183">
+                                                                                <Cond>
+                                                                                    <Loc EndOffset="7513" SrcFileId="1" StartOffset="7509"/>
+                                                                                </Cond>
+                                                                                <LocList>
+                                                                                    <Loc EndOffset="8267" SrcFileId="1" StartOffset="7514"/>
+                                                                                </LocList>
+                                                                                <StmntSeq Intrnl_Id="184">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="8267" SrcFileId="1" StartOffset="7514"/>
+                                                                                    </LocList>
+                                                                                    <CondStmnt CovItemId="S85" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="185">
+                                                                                        <Branch CovItemId="B20" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="186">
+                                                                                            <Cond/>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="8267" SrcFileId="1" StartOffset="7562"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="187">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="7607" SrcFileId="1" StartOffset="7597"/>
+                                                                                                    <Loc EndOffset="7655" SrcFileId="1" StartOffset="7641"/>
+                                                                                                    <Loc EndOffset="8202" SrcFileId="1" StartOffset="7689"/>
+                                                                                                </LocList>
+                                                                                                <BasicStmnt CovItemId="S86" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="188">
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="7607" SrcFileId="1" StartOffset="7597"/>
+                                                                                                    </LocList>
+                                                                                                </BasicStmnt>
+                                                                                                <BasicStmnt CovItemId="S87" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="189">
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="7655" SrcFileId="1" StartOffset="7641"/>
+                                                                                                    </LocList>
+                                                                                                </BasicStmnt>
+                                                                                                <CondStmnt CovItemId="S88" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="190">
+                                                                                                    <Branch CovItemId="B22" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="191">
+                                                                                                        <Cond/>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="7845" SrcFileId="1" StartOffset="7715"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="192">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="7810" SrcFileId="1" StartOffset="7754"/>
+                                                                                                            </LocList>
+                                                                                                            <BasicStmnt CovItemId="S89" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="193">
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="7810" SrcFileId="1" StartOffset="7754"/>
+                                                                                                                </LocList>
+                                                                                                            </BasicStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Branch CovItemId="B23" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="194">
+                                                                                                        <Cond>
+                                                                                                            <Loc EndOffset="7883" SrcFileId="1" StartOffset="7879"/>
+                                                                                                        </Cond>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="8202" SrcFileId="1" StartOffset="7884"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="195">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="8202" SrcFileId="1" StartOffset="7884"/>
+                                                                                                            </LocList>
+                                                                                                            <CondStmnt CovItemId="S90" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="196">
+                                                                                                                <Branch CovItemId="B24" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="197">
+                                                                                                                    <Cond/>
+                                                                                                                    <LocList>
+                                                                                                                        <Loc EndOffset="8039" SrcFileId="1" StartOffset="7905"/>
+                                                                                                                    </LocList>
+                                                                                                                    <StmntSeq Intrnl_Id="198">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="8004" SrcFileId="1" StartOffset="7944"/>
+                                                                                                                        </LocList>
+                                                                                                                        <BasicStmnt CovItemId="S91" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="199">
+                                                                                                                            <LocList>
+                                                                                                                                <Loc EndOffset="8004" SrcFileId="1" StartOffset="7944"/>
+                                                                                                                            </LocList>
+                                                                                                                        </BasicStmnt>
+                                                                                                                    </StmntSeq>
+                                                                                                                </Branch>
+                                                                                                                <Branch CovItemId="B25" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="200">
+                                                                                                                    <Cond>
+                                                                                                                        <Loc EndOffset="8077" SrcFileId="1" StartOffset="8073"/>
+                                                                                                                    </Cond>
+                                                                                                                    <LocList>
+                                                                                                                        <Loc EndOffset="8202" SrcFileId="1" StartOffset="8078"/>
+                                                                                                                    </LocList>
+                                                                                                                    <StmntSeq Intrnl_Id="201">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="8167" SrcFileId="1" StartOffset="8117"/>
+                                                                                                                        </LocList>
+                                                                                                                        <BasicStmnt CovItemId="S92" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="202">
+                                                                                                                            <LocList>
+                                                                                                                                <Loc EndOffset="8167" SrcFileId="1" StartOffset="8117"/>
+                                                                                                                            </LocList>
+                                                                                                                        </BasicStmnt>
+                                                                                                                    </StmntSeq>
+                                                                                                                </Branch>
+                                                                                                                <Keyword EndOffset="7886" SrcFileId="1" StartOffset="7884"/>
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="8202" SrcFileId="1" StartOffset="7884"/>
+                                                                                                                </LocList>
+                                                                                                                <RootTerm CovItemId="C12" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="203">
+                                                                                                                    <BasicBoolTerm Intrnl_Id="204">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="7903" SrcFileId="1" StartOffset="7888"/>
+                                                                                                                        </LocList>
+                                                                                                                    </BasicBoolTerm>
+                                                                                                                </RootTerm>
+                                                                                                            </CondStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Keyword EndOffset="7691" SrcFileId="1" StartOffset="7689"/>
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="8202" SrcFileId="1" StartOffset="7689"/>
+                                                                                                    </LocList>
+                                                                                                    <RootTerm CovItemId="C11" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="205">
+                                                                                                        <BasicBoolTerm Intrnl_Id="206">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="7713" SrcFileId="1" StartOffset="7693"/>
+                                                                                                            </LocList>
+                                                                                                        </BasicBoolTerm>
+                                                                                                    </RootTerm>
+                                                                                                </CondStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Branch CovItemId="B21" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="true" Intrnl_Id="207">
+                                                                                            <Cond/>
+                                                                                            <LocList/>
+                                                                                            <StmntSeq Intrnl_Id="208">
+                                                                                                <LocList/>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Keyword EndOffset="7516" SrcFileId="1" StartOffset="7514"/>
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="8267" SrcFileId="1" StartOffset="7514"/>
+                                                                                        </LocList>
+                                                                                        <RootTerm CovItemId="C10" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="209">
+                                                                                            <BasicBoolTerm Intrnl_Id="210">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="7560" SrcFileId="1" StartOffset="7518"/>
+                                                                                                </LocList>
+                                                                                            </BasicBoolTerm>
+                                                                                        </RootTerm>
+                                                                                    </CondStmnt>
+                                                                                </StmntSeq>
+                                                                            </Branch>
+                                                                            <Keyword EndOffset="6761" SrcFileId="1" StartOffset="6759"/>
+                                                                            <LocList>
+                                                                                <Loc EndOffset="8267" SrcFileId="1" StartOffset="6759"/>
+                                                                            </LocList>
+                                                                            <RootTerm CovItemId="C7" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="211">
+                                                                                <BasicBoolTerm Intrnl_Id="212">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="6805" SrcFileId="1" StartOffset="6763"/>
+                                                                                    </LocList>
+                                                                                </BasicBoolTerm>
+                                                                            </RootTerm>
+                                                                        </CondStmnt>
+                                                                    </StmntSeq>
+                                                                </Branch>
+                                                                <Keyword EndOffset="6007" SrcFileId="1" StartOffset="6005"/>
+                                                                <LocList>
+                                                                    <Loc EndOffset="8267" SrcFileId="1" StartOffset="6005"/>
+                                                                </LocList>
+                                                                <RootTerm CovItemId="C4" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="213">
+                                                                    <BasicBoolTerm Intrnl_Id="214">
+                                                                        <LocList>
+                                                                            <Loc EndOffset="6050" SrcFileId="1" StartOffset="6009"/>
+                                                                        </LocList>
+                                                                    </BasicBoolTerm>
+                                                                </RootTerm>
+                                                            </CondStmnt>
+                                                            <BasicStmnt CovItemId="S93" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="215">
+                                                                <LocList>
+                                                                    <Loc EndOffset="8340" SrcFileId="1" StartOffset="8293"/>
+                                                                </LocList>
+                                                            </BasicStmnt>
+                                                            <BasicStmnt CovItemId="S94" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="216">
+                                                                <LocList>
+                                                                    <Loc EndOffset="8402" SrcFileId="1" StartOffset="8366"/>
+                                                                </LocList>
+                                                            </BasicStmnt>
+                                                            <BasicStmnt CovItemId="S95" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="217">
+                                                                <LocList>
+                                                                    <Loc EndOffset="8441" SrcFileId="1" StartOffset="8428"/>
+                                                                </LocList>
+                                                            </BasicStmnt>
+                                                        </StmntSeq>
+                                                    </Branch>
+                                                    <Branch CovItemId="B7" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="218">
+                                                        <Cond>
+                                                            <Loc EndOffset="8524" SrcFileId="1" StartOffset="8520"/>
+                                                        </Cond>
+                                                        <LocList>
+                                                            <Loc EndOffset="11035" SrcFileId="1" StartOffset="8525"/>
+                                                        </LocList>
+                                                        <StmntSeq Intrnl_Id="219">
+                                                            <LocList>
+                                                                <Loc EndOffset="11035" SrcFileId="1" StartOffset="8525"/>
+                                                            </LocList>
+                                                            <CondStmnt CovItemId="S96" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="220">
+                                                                <Branch CovItemId="B26" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="221">
+                                                                    <Cond/>
+                                                                    <LocList>
+                                                                        <Loc EndOffset="11035" SrcFileId="1" StartOffset="8575"/>
+                                                                    </LocList>
+                                                                    <StmntSeq Intrnl_Id="222">
+                                                                        <LocList>
+                                                                            <Loc EndOffset="10834" SrcFileId="1" StartOffset="8606"/>
+                                                                            <Loc EndOffset="10907" SrcFileId="1" StartOffset="10860"/>
+                                                                            <Loc EndOffset="10969" SrcFileId="1" StartOffset="10933"/>
+                                                                            <Loc EndOffset="11008" SrcFileId="1" StartOffset="10995"/>
+                                                                        </LocList>
+                                                                        <CondStmnt CovItemId="S97" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="223">
+                                                                            <Branch CovItemId="B28" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="224">
+                                                                                <Cond/>
+                                                                                <LocList>
+                                                                                    <Loc EndOffset="9325" SrcFileId="1" StartOffset="8653"/>
+                                                                                </LocList>
+                                                                                <StmntSeq Intrnl_Id="225">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="8698" SrcFileId="1" StartOffset="8688"/>
+                                                                                        <Loc EndOffset="8747" SrcFileId="1" StartOffset="8732"/>
+                                                                                        <Loc EndOffset="9294" SrcFileId="1" StartOffset="8781"/>
+                                                                                    </LocList>
+                                                                                    <BasicStmnt CovItemId="S98" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="226">
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="8698" SrcFileId="1" StartOffset="8688"/>
+                                                                                        </LocList>
+                                                                                    </BasicStmnt>
+                                                                                    <BasicStmnt CovItemId="S99" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="227">
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="8747" SrcFileId="1" StartOffset="8732"/>
+                                                                                        </LocList>
+                                                                                    </BasicStmnt>
+                                                                                    <CondStmnt CovItemId="S100" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="228">
+                                                                                        <Branch CovItemId="B30" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="229">
+                                                                                            <Cond/>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="8937" SrcFileId="1" StartOffset="8807"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="230">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="8902" SrcFileId="1" StartOffset="8846"/>
+                                                                                                </LocList>
+                                                                                                <BasicStmnt CovItemId="S101" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="231">
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="8902" SrcFileId="1" StartOffset="8846"/>
+                                                                                                    </LocList>
+                                                                                                </BasicStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Branch CovItemId="B31" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="232">
+                                                                                            <Cond>
+                                                                                                <Loc EndOffset="8975" SrcFileId="1" StartOffset="8971"/>
+                                                                                            </Cond>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="9294" SrcFileId="1" StartOffset="8976"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="233">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="9294" SrcFileId="1" StartOffset="8976"/>
+                                                                                                </LocList>
+                                                                                                <CondStmnt CovItemId="S102" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="234">
+                                                                                                    <Branch CovItemId="B32" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="235">
+                                                                                                        <Cond/>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="9131" SrcFileId="1" StartOffset="8997"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="236">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="9096" SrcFileId="1" StartOffset="9036"/>
+                                                                                                            </LocList>
+                                                                                                            <BasicStmnt CovItemId="S103" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="237">
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="9096" SrcFileId="1" StartOffset="9036"/>
+                                                                                                                </LocList>
+                                                                                                            </BasicStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Branch CovItemId="B33" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="238">
+                                                                                                        <Cond>
+                                                                                                            <Loc EndOffset="9169" SrcFileId="1" StartOffset="9165"/>
+                                                                                                        </Cond>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="9294" SrcFileId="1" StartOffset="9170"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="239">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="9259" SrcFileId="1" StartOffset="9209"/>
+                                                                                                            </LocList>
+                                                                                                            <BasicStmnt CovItemId="S104" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="240">
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="9259" SrcFileId="1" StartOffset="9209"/>
+                                                                                                                </LocList>
+                                                                                                            </BasicStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Keyword EndOffset="8978" SrcFileId="1" StartOffset="8976"/>
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="9294" SrcFileId="1" StartOffset="8976"/>
+                                                                                                    </LocList>
+                                                                                                    <RootTerm CovItemId="C16" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="241">
+                                                                                                        <BasicBoolTerm Intrnl_Id="242">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="8995" SrcFileId="1" StartOffset="8980"/>
+                                                                                                            </LocList>
+                                                                                                        </BasicBoolTerm>
+                                                                                                    </RootTerm>
+                                                                                                </CondStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Keyword EndOffset="8783" SrcFileId="1" StartOffset="8781"/>
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="9294" SrcFileId="1" StartOffset="8781"/>
+                                                                                        </LocList>
+                                                                                        <RootTerm CovItemId="C15" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="243">
+                                                                                            <BasicBoolTerm Intrnl_Id="244">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="8805" SrcFileId="1" StartOffset="8785"/>
+                                                                                                </LocList>
+                                                                                            </BasicBoolTerm>
+                                                                                        </RootTerm>
+                                                                                    </CondStmnt>
+                                                                                </StmntSeq>
+                                                                            </Branch>
+                                                                            <Branch CovItemId="B29" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="245">
+                                                                                <Cond>
+                                                                                    <Loc EndOffset="9359" SrcFileId="1" StartOffset="9355"/>
+                                                                                </Cond>
+                                                                                <LocList>
+                                                                                    <Loc EndOffset="10834" SrcFileId="1" StartOffset="9360"/>
+                                                                                </LocList>
+                                                                                <StmntSeq Intrnl_Id="246">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="10834" SrcFileId="1" StartOffset="9360"/>
+                                                                                    </LocList>
+                                                                                    <CondStmnt CovItemId="S105" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="247">
+                                                                                        <Branch CovItemId="B34" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="248">
+                                                                                            <Cond/>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="10080" SrcFileId="1" StartOffset="9408"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="249">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="9453" SrcFileId="1" StartOffset="9443"/>
+                                                                                                    <Loc EndOffset="9502" SrcFileId="1" StartOffset="9487"/>
+                                                                                                    <Loc EndOffset="10049" SrcFileId="1" StartOffset="9536"/>
+                                                                                                </LocList>
+                                                                                                <BasicStmnt CovItemId="S106" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="250">
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="9453" SrcFileId="1" StartOffset="9443"/>
+                                                                                                    </LocList>
+                                                                                                </BasicStmnt>
+                                                                                                <BasicStmnt CovItemId="S107" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="251">
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="9502" SrcFileId="1" StartOffset="9487"/>
+                                                                                                    </LocList>
+                                                                                                </BasicStmnt>
+                                                                                                <CondStmnt CovItemId="S108" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="252">
+                                                                                                    <Branch CovItemId="B36" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="253">
+                                                                                                        <Cond/>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="9692" SrcFileId="1" StartOffset="9562"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="254">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="9657" SrcFileId="1" StartOffset="9601"/>
+                                                                                                            </LocList>
+                                                                                                            <BasicStmnt CovItemId="S109" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="255">
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="9657" SrcFileId="1" StartOffset="9601"/>
+                                                                                                                </LocList>
+                                                                                                            </BasicStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Branch CovItemId="B37" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="256">
+                                                                                                        <Cond>
+                                                                                                            <Loc EndOffset="9730" SrcFileId="1" StartOffset="9726"/>
+                                                                                                        </Cond>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="10049" SrcFileId="1" StartOffset="9731"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="257">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="10049" SrcFileId="1" StartOffset="9731"/>
+                                                                                                            </LocList>
+                                                                                                            <CondStmnt CovItemId="S110" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="258">
+                                                                                                                <Branch CovItemId="B38" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="259">
+                                                                                                                    <Cond/>
+                                                                                                                    <LocList>
+                                                                                                                        <Loc EndOffset="9886" SrcFileId="1" StartOffset="9752"/>
+                                                                                                                    </LocList>
+                                                                                                                    <StmntSeq Intrnl_Id="260">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="9851" SrcFileId="1" StartOffset="9791"/>
+                                                                                                                        </LocList>
+                                                                                                                        <BasicStmnt CovItemId="S111" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="261">
+                                                                                                                            <LocList>
+                                                                                                                                <Loc EndOffset="9851" SrcFileId="1" StartOffset="9791"/>
+                                                                                                                            </LocList>
+                                                                                                                        </BasicStmnt>
+                                                                                                                    </StmntSeq>
+                                                                                                                </Branch>
+                                                                                                                <Branch CovItemId="B39" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="262">
+                                                                                                                    <Cond>
+                                                                                                                        <Loc EndOffset="9924" SrcFileId="1" StartOffset="9920"/>
+                                                                                                                    </Cond>
+                                                                                                                    <LocList>
+                                                                                                                        <Loc EndOffset="10049" SrcFileId="1" StartOffset="9925"/>
+                                                                                                                    </LocList>
+                                                                                                                    <StmntSeq Intrnl_Id="263">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="10014" SrcFileId="1" StartOffset="9964"/>
+                                                                                                                        </LocList>
+                                                                                                                        <BasicStmnt CovItemId="S112" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="264">
+                                                                                                                            <LocList>
+                                                                                                                                <Loc EndOffset="10014" SrcFileId="1" StartOffset="9964"/>
+                                                                                                                            </LocList>
+                                                                                                                        </BasicStmnt>
+                                                                                                                    </StmntSeq>
+                                                                                                                </Branch>
+                                                                                                                <Keyword EndOffset="9733" SrcFileId="1" StartOffset="9731"/>
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="10049" SrcFileId="1" StartOffset="9731"/>
+                                                                                                                </LocList>
+                                                                                                                <RootTerm CovItemId="C19" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="265">
+                                                                                                                    <BasicBoolTerm Intrnl_Id="266">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="9750" SrcFileId="1" StartOffset="9735"/>
+                                                                                                                        </LocList>
+                                                                                                                    </BasicBoolTerm>
+                                                                                                                </RootTerm>
+                                                                                                            </CondStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Keyword EndOffset="9538" SrcFileId="1" StartOffset="9536"/>
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="10049" SrcFileId="1" StartOffset="9536"/>
+                                                                                                    </LocList>
+                                                                                                    <RootTerm CovItemId="C18" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="267">
+                                                                                                        <BasicBoolTerm Intrnl_Id="268">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="9560" SrcFileId="1" StartOffset="9540"/>
+                                                                                                            </LocList>
+                                                                                                        </BasicBoolTerm>
+                                                                                                    </RootTerm>
+                                                                                                </CondStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Branch CovItemId="B35" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="269">
+                                                                                            <Cond>
+                                                                                                <Loc EndOffset="10114" SrcFileId="1" StartOffset="10110"/>
+                                                                                            </Cond>
+                                                                                            <LocList>
+                                                                                                <Loc EndOffset="10834" SrcFileId="1" StartOffset="10115"/>
+                                                                                            </LocList>
+                                                                                            <StmntSeq Intrnl_Id="270">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="10834" SrcFileId="1" StartOffset="10115"/>
+                                                                                                </LocList>
+                                                                                                <CondStmnt CovItemId="S113" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="271">
+                                                                                                    <Branch CovItemId="B40" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="272">
+                                                                                                        <Cond/>
+                                                                                                        <LocList>
+                                                                                                            <Loc EndOffset="10834" SrcFileId="1" StartOffset="10163"/>
+                                                                                                        </LocList>
+                                                                                                        <StmntSeq Intrnl_Id="273">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="10208" SrcFileId="1" StartOffset="10198"/>
+                                                                                                                <Loc EndOffset="10256" SrcFileId="1" StartOffset="10242"/>
+                                                                                                                <Loc EndOffset="10803" SrcFileId="1" StartOffset="10290"/>
+                                                                                                            </LocList>
+                                                                                                            <BasicStmnt CovItemId="S114" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="274">
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="10208" SrcFileId="1" StartOffset="10198"/>
+                                                                                                                </LocList>
+                                                                                                            </BasicStmnt>
+                                                                                                            <BasicStmnt CovItemId="S115" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="275">
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="10256" SrcFileId="1" StartOffset="10242"/>
+                                                                                                                </LocList>
+                                                                                                            </BasicStmnt>
+                                                                                                            <CondStmnt CovItemId="S116" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="276">
+                                                                                                                <Branch CovItemId="B42" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="277">
+                                                                                                                    <Cond/>
+                                                                                                                    <LocList>
+                                                                                                                        <Loc EndOffset="10446" SrcFileId="1" StartOffset="10316"/>
+                                                                                                                    </LocList>
+                                                                                                                    <StmntSeq Intrnl_Id="278">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="10411" SrcFileId="1" StartOffset="10355"/>
+                                                                                                                        </LocList>
+                                                                                                                        <BasicStmnt CovItemId="S117" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="279">
+                                                                                                                            <LocList>
+                                                                                                                                <Loc EndOffset="10411" SrcFileId="1" StartOffset="10355"/>
+                                                                                                                            </LocList>
+                                                                                                                        </BasicStmnt>
+                                                                                                                    </StmntSeq>
+                                                                                                                </Branch>
+                                                                                                                <Branch CovItemId="B43" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="280">
+                                                                                                                    <Cond>
+                                                                                                                        <Loc EndOffset="10484" SrcFileId="1" StartOffset="10480"/>
+                                                                                                                    </Cond>
+                                                                                                                    <LocList>
+                                                                                                                        <Loc EndOffset="10803" SrcFileId="1" StartOffset="10485"/>
+                                                                                                                    </LocList>
+                                                                                                                    <StmntSeq Intrnl_Id="281">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="10803" SrcFileId="1" StartOffset="10485"/>
+                                                                                                                        </LocList>
+                                                                                                                        <CondStmnt CovItemId="S118" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="282">
+                                                                                                                            <Branch CovItemId="B44" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="283">
+                                                                                                                                <Cond/>
+                                                                                                                                <LocList>
+                                                                                                                                    <Loc EndOffset="10640" SrcFileId="1" StartOffset="10506"/>
+                                                                                                                                </LocList>
+                                                                                                                                <StmntSeq Intrnl_Id="284">
+                                                                                                                                    <LocList>
+                                                                                                                                        <Loc EndOffset="10605" SrcFileId="1" StartOffset="10545"/>
+                                                                                                                                    </LocList>
+                                                                                                                                    <BasicStmnt CovItemId="S119" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="285">
+                                                                                                                                        <LocList>
+                                                                                                                                            <Loc EndOffset="10605" SrcFileId="1" StartOffset="10545"/>
+                                                                                                                                        </LocList>
+                                                                                                                                    </BasicStmnt>
+                                                                                                                                </StmntSeq>
+                                                                                                                            </Branch>
+                                                                                                                            <Branch CovItemId="B45" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="286">
+                                                                                                                                <Cond>
+                                                                                                                                    <Loc EndOffset="10678" SrcFileId="1" StartOffset="10674"/>
+                                                                                                                                </Cond>
+                                                                                                                                <LocList>
+                                                                                                                                    <Loc EndOffset="10803" SrcFileId="1" StartOffset="10679"/>
+                                                                                                                                </LocList>
+                                                                                                                                <StmntSeq Intrnl_Id="287">
+                                                                                                                                    <LocList>
+                                                                                                                                        <Loc EndOffset="10768" SrcFileId="1" StartOffset="10718"/>
+                                                                                                                                    </LocList>
+                                                                                                                                    <BasicStmnt CovItemId="S120" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="288">
+                                                                                                                                        <LocList>
+                                                                                                                                            <Loc EndOffset="10768" SrcFileId="1" StartOffset="10718"/>
+                                                                                                                                        </LocList>
+                                                                                                                                    </BasicStmnt>
+                                                                                                                                </StmntSeq>
+                                                                                                                            </Branch>
+                                                                                                                            <Keyword EndOffset="10487" SrcFileId="1" StartOffset="10485"/>
+                                                                                                                            <LocList>
+                                                                                                                                <Loc EndOffset="10803" SrcFileId="1" StartOffset="10485"/>
+                                                                                                                            </LocList>
+                                                                                                                            <RootTerm CovItemId="C22" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="289">
+                                                                                                                                <BasicBoolTerm Intrnl_Id="290">
+                                                                                                                                    <LocList>
+                                                                                                                                        <Loc EndOffset="10504" SrcFileId="1" StartOffset="10489"/>
+                                                                                                                                    </LocList>
+                                                                                                                                </BasicBoolTerm>
+                                                                                                                            </RootTerm>
+                                                                                                                        </CondStmnt>
+                                                                                                                    </StmntSeq>
+                                                                                                                </Branch>
+                                                                                                                <Keyword EndOffset="10292" SrcFileId="1" StartOffset="10290"/>
+                                                                                                                <LocList>
+                                                                                                                    <Loc EndOffset="10803" SrcFileId="1" StartOffset="10290"/>
+                                                                                                                </LocList>
+                                                                                                                <RootTerm CovItemId="C21" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="291">
+                                                                                                                    <BasicBoolTerm Intrnl_Id="292">
+                                                                                                                        <LocList>
+                                                                                                                            <Loc EndOffset="10314" SrcFileId="1" StartOffset="10294"/>
+                                                                                                                        </LocList>
+                                                                                                                    </BasicBoolTerm>
+                                                                                                                </RootTerm>
+                                                                                                            </CondStmnt>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Branch CovItemId="B41" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="true" Intrnl_Id="293">
+                                                                                                        <Cond/>
+                                                                                                        <LocList/>
+                                                                                                        <StmntSeq Intrnl_Id="294">
+                                                                                                            <LocList/>
+                                                                                                        </StmntSeq>
+                                                                                                    </Branch>
+                                                                                                    <Keyword EndOffset="10117" SrcFileId="1" StartOffset="10115"/>
+                                                                                                    <LocList>
+                                                                                                        <Loc EndOffset="10834" SrcFileId="1" StartOffset="10115"/>
+                                                                                                    </LocList>
+                                                                                                    <RootTerm CovItemId="C20" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="295">
+                                                                                                        <BasicBoolTerm Intrnl_Id="296">
+                                                                                                            <LocList>
+                                                                                                                <Loc EndOffset="10161" SrcFileId="1" StartOffset="10119"/>
+                                                                                                            </LocList>
+                                                                                                        </BasicBoolTerm>
+                                                                                                    </RootTerm>
+                                                                                                </CondStmnt>
+                                                                                            </StmntSeq>
+                                                                                        </Branch>
+                                                                                        <Keyword EndOffset="9362" SrcFileId="1" StartOffset="9360"/>
+                                                                                        <LocList>
+                                                                                            <Loc EndOffset="10834" SrcFileId="1" StartOffset="9360"/>
+                                                                                        </LocList>
+                                                                                        <RootTerm CovItemId="C17" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="297">
+                                                                                            <BasicBoolTerm Intrnl_Id="298">
+                                                                                                <LocList>
+                                                                                                    <Loc EndOffset="9406" SrcFileId="1" StartOffset="9364"/>
+                                                                                                </LocList>
+                                                                                            </BasicBoolTerm>
+                                                                                        </RootTerm>
+                                                                                    </CondStmnt>
+                                                                                </StmntSeq>
+                                                                            </Branch>
+                                                                            <Keyword EndOffset="8608" SrcFileId="1" StartOffset="8606"/>
+                                                                            <LocList>
+                                                                                <Loc EndOffset="10834" SrcFileId="1" StartOffset="8606"/>
+                                                                            </LocList>
+                                                                            <RootTerm CovItemId="C14" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="299">
+                                                                                <BasicBoolTerm Intrnl_Id="300">
+                                                                                    <LocList>
+                                                                                        <Loc EndOffset="8651" SrcFileId="1" StartOffset="8610"/>
+                                                                                    </LocList>
+                                                                                </BasicBoolTerm>
+                                                                            </RootTerm>
+                                                                        </CondStmnt>
+                                                                        <BasicStmnt CovItemId="S121" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="301">
+                                                                            <LocList>
+                                                                                <Loc EndOffset="10907" SrcFileId="1" StartOffset="10860"/>
+                                                                            </LocList>
+                                                                        </BasicStmnt>
+                                                                        <BasicStmnt CovItemId="S122" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="302">
+                                                                            <LocList>
+                                                                                <Loc EndOffset="10969" SrcFileId="1" StartOffset="10933"/>
+                                                                            </LocList>
+                                                                        </BasicStmnt>
+                                                                        <BasicStmnt CovItemId="S123" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="303">
+                                                                            <LocList>
+                                                                                <Loc EndOffset="11008" SrcFileId="1" StartOffset="10995"/>
+                                                                            </LocList>
+                                                                        </BasicStmnt>
+                                                                    </StmntSeq>
+                                                                </Branch>
+                                                                <Branch CovItemId="B27" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="true" Intrnl_Id="304">
+                                                                    <Cond/>
+                                                                    <LocList/>
+                                                                    <StmntSeq Intrnl_Id="305">
+                                                                        <LocList/>
+                                                                    </StmntSeq>
+                                                                </Branch>
+                                                                <Keyword EndOffset="8527" SrcFileId="1" StartOffset="8525"/>
+                                                                <LocList>
+                                                                    <Loc EndOffset="11035" SrcFileId="1" StartOffset="8525"/>
+                                                                </LocList>
+                                                                <RootTerm CovItemId="C13" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="306">
+                                                                    <BasicBoolTerm Intrnl_Id="307">
+                                                                        <LocList>
+                                                                            <Loc EndOffset="8572" SrcFileId="1" StartOffset="8529"/>
+                                                                        </LocList>
+                                                                    </BasicBoolTerm>
+                                                                </RootTerm>
+                                                            </CondStmnt>
+                                                        </StmntSeq>
+                                                    </Branch>
+                                                    <Keyword EndOffset="5928" SrcFileId="1" StartOffset="5926"/>
+                                                    <LocList>
+                                                        <Loc EndOffset="11035" SrcFileId="1" StartOffset="5926"/>
+                                                    </LocList>
+                                                    <RootTerm CovItemId="C3" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="308">
+                                                        <BasicBoolTerm Intrnl_Id="309">
+                                                            <LocList>
+                                                                <Loc EndOffset="5971" SrcFileId="1" StartOffset="5930"/>
+                                                            </LocList>
+                                                        </BasicBoolTerm>
+                                                    </RootTerm>
+                                                </CondStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="5659" SrcFileId="1" StartOffset="5657"/>
+                                        <LocList>
+                                            <Loc EndOffset="11058" SrcFileId="1" StartOffset="5657"/>
+                                        </LocList>
+                                        <RootTerm CovItemId="C2" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="310">
+                                            <BasicBoolTerm Intrnl_Id="311">
+                                                <LocList>
+                                                    <Loc EndOffset="5690" SrcFileId="1" StartOffset="5661"/>
+                                                </LocList>
+                                            </BasicBoolTerm>
+                                        </RootTerm>
+                                    </CondStmnt>
+                                    <CondStmnt CovItemId="S64" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="312">
+                                        <Branch CovItemId="B3" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="true" Intrnl_Id="313">
+                                            <Cond/>
+                                            <LocList/>
+                                            <StmntSeq Intrnl_Id="314">
+                                                <LocList/>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B46" CovItemPrefix="FareCalculator.FareCalculator.java" Implct="false" Intrnl_Id="315">
+                                            <Cond>
+                                                <Loc EndOffset="11098" SrcFileId="1" StartOffset="11078"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="11164" SrcFileId="1" StartOffset="11099"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="316">
+                                                <LocList>
+                                                    <Loc EndOffset="11145" SrcFileId="1" StartOffset="11122"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S124" CovItemPrefix="FareCalculator.FareCalculator.java" Intrnl_Id="317">
+                                                    <LocList>
+                                                        <Loc EndOffset="11145" SrcFileId="1" StartOffset="11122"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="5633" SrcFileId="1" StartOffset="5630"/>
+                                        <LocList>
+                                            <Loc EndOffset="11164" SrcFileId="1" StartOffset="5630"/>
+                                        </LocList>
+                                    </CondStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+            </HierarchyLvl>
+        </HierarchyLvl>
+    </MASTRoot>
+</TestSessionContainer>

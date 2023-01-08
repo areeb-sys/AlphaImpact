@@ -31,7 +31,9 @@ public class FareCalculator {
     private JMenuItem yellow;
     
     private JLabel departLabel;
+    private JLabel StateLabel;
     private JComboBox departCombo;
+    private JComboBox StateCombo;
     
     
     private JLabel Class;
@@ -50,7 +52,22 @@ public class FareCalculator {
     private JLabel totalFare;
     private JTextField totalFareText;
 
-    
+//    private void StateComboActionPerformed(java.awt.event.ActionEvent evt)
+//    {
+//    	if(StateCombo.getSelectedItem()=="Punjab")
+//        {
+//    		departCombo.addItem(null);
+//    		departCombo.addItem("a");
+//            departCombo.addItem("b");
+//            
+//        }
+//        else
+//        {
+//        	departCombo.addItem("c");
+//            departCombo.addItem("d");
+//            
+//        }
+//    }
     public static void main(String[] args) {
         
         new FareCalculator();
@@ -98,7 +115,7 @@ public class FareCalculator {
                 panel3.setBackground(Color.green);
             }
         });
-        
+   
         yellow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -107,12 +124,19 @@ public class FareCalculator {
                 panel2.setBackground(Color.yellow);
                 panel3.setBackground(Color.yellow);
             }
+          
         });
+     
         
-        departLabel = new JLabel("Departure City: ");
+        departLabel = new JLabel("Departure city: ");
+        StateLabel =new JLabel("State: ");
+        StateCombo= new JComboBox();
+        StateCombo.addItem(null);
+        StateCombo.addItem("Khyber Pakhtunkhwa");
+        StateCombo.addItem("Punjab");
         departCombo = new JComboBox();
-        departCombo.addItem("Lahore");
-        departCombo.addItem("Peshawar");
+        //departCombo.addItem("a");
+       
         
         Class = new JLabel("Class");
         economy = new JCheckBox("Economy");
@@ -120,7 +144,28 @@ public class FareCalculator {
         bGroup = new ButtonGroup();
         bGroup.add(economy);
         bGroup.add(AC);
-        
+        StateCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	if(StateCombo.getSelectedItem()=="Punjab")
+                  {
+            		departCombo.removeAllItems();
+            		
+              		departCombo.addItem("Lahore");
+                      
+                      
+                  }
+                  else
+                  {
+                	  departCombo.removeAllItems();
+              		
+                  	departCombo.addItem("Peshawar");
+                     
+                      
+                  }
+
+            }
+        });
         
         arrLabel = new JLabel("Arrival City: ");
         arrCombo = new JComboBox();
@@ -185,6 +230,7 @@ public class FareCalculator {
                                 else {
                                     totalFareText.setText("missing input. Try Again");
                                 }
+                                
                             }
                         FileWriter file = new FileWriter("output.txt");
                         file.write(totalFareText.getText());
@@ -250,10 +296,13 @@ public class FareCalculator {
         frame.add(panel3);
         frame.add(panel2);
 
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 0, 30));
-        panel3.setBorder(BorderFactory.createEmptyBorder(30, 30, 0, 30));
+        panel.setBorder(BorderFactory.createEmptyBorder(50, 50, 0, 50));
+        panel3.setBorder(BorderFactory.createEmptyBorder(50, 50, 0, 50));
         panel.setLayout(grdLayout);
+        panel.add(StateLabel);
+        panel.add(StateCombo);
         panel.add(departLabel);
+        
         panel.add(departCombo);
         panel1.add(Class);
         panel1.add(economy);
