@@ -1753,4 +1753,276 @@
             </HierarchyLvl>
         </HierarchyLvl>
     </MASTRoot>
+    <TestSession Comment="" Date="1673241571743" Name="Jan 9, 2023, 10:19:31 AM">
+        <TestCase Comment="This is a test case containing all coverage results cause no startTestCase methods where captured." Date="1673241551084" Name="UNNAMED TESTCASE">
+            <CovList>
+                <CovPrefix CovItemPrefix="FareCalculator.FareCalculator.java">
+                    <Cov CovItemId="B2" Value="1"/>
+                    <Cov CovItemId="B26" Value="1"/>
+                    <Cov CovItemId="B29" Value="1"/>
+                    <Cov CovItemId="B3" Value="1"/>
+                    <Cov CovItemId="B34" Value="1"/>
+                    <Cov CovItemId="B36" Value="1"/>
+                    <Cov CovItemId="B5" Value="1"/>
+                    <Cov CovItemId="B7" Value="1"/>
+                    <Cov CovItemId="S1" Value="1"/>
+                    <Cov CovItemId="S10" Value="1"/>
+                    <Cov CovItemId="S105" Value="1"/>
+                    <Cov CovItemId="S106" Value="1"/>
+                    <Cov CovItemId="S107" Value="1"/>
+                    <Cov CovItemId="S108" Value="1"/>
+                    <Cov CovItemId="S109" Value="1"/>
+                    <Cov CovItemId="S11" Value="1"/>
+                    <Cov CovItemId="S12" Value="1"/>
+                    <Cov CovItemId="S121" Value="1"/>
+                    <Cov CovItemId="S122" Value="1"/>
+                    <Cov CovItemId="S123" Value="1"/>
+                    <Cov CovItemId="S125" Value="1"/>
+                    <Cov CovItemId="S126" Value="1"/>
+                    <Cov CovItemId="S127" Value="1"/>
+                    <Cov CovItemId="S128" Value="1"/>
+                    <Cov CovItemId="S129" Value="1"/>
+                    <Cov CovItemId="S13" Value="1"/>
+                    <Cov CovItemId="S130" Value="1"/>
+                    <Cov CovItemId="S131" Value="1"/>
+                    <Cov CovItemId="S132" Value="1"/>
+                    <Cov CovItemId="S133" Value="1"/>
+                    <Cov CovItemId="S134" Value="1"/>
+                    <Cov CovItemId="S135" Value="1"/>
+                    <Cov CovItemId="S136" Value="1"/>
+                    <Cov CovItemId="S137" Value="1"/>
+                    <Cov CovItemId="S138" Value="1"/>
+                    <Cov CovItemId="S139" Value="1"/>
+                    <Cov CovItemId="S14" Value="1"/>
+                    <Cov CovItemId="S140" Value="1"/>
+                    <Cov CovItemId="S141" Value="1"/>
+                    <Cov CovItemId="S142" Value="1"/>
+                    <Cov CovItemId="S143" Value="1"/>
+                    <Cov CovItemId="S144" Value="1"/>
+                    <Cov CovItemId="S145" Value="1"/>
+                    <Cov CovItemId="S146" Value="1"/>
+                    <Cov CovItemId="S147" Value="1"/>
+                    <Cov CovItemId="S148" Value="1"/>
+                    <Cov CovItemId="S149" Value="1"/>
+                    <Cov CovItemId="S15" Value="1"/>
+                    <Cov CovItemId="S150" Value="1"/>
+                    <Cov CovItemId="S151" Value="1"/>
+                    <Cov CovItemId="S152" Value="1"/>
+                    <Cov CovItemId="S153" Value="1"/>
+                    <Cov CovItemId="S16" Value="1"/>
+                    <Cov CovItemId="S17" Value="1"/>
+                    <Cov CovItemId="S18" Value="1"/>
+                    <Cov CovItemId="S2" Value="1"/>
+                    <Cov CovItemId="S23" Value="1"/>
+                    <Cov CovItemId="S28" Value="1"/>
+                    <Cov CovItemId="S3" Value="1"/>
+                    <Cov CovItemId="S33" Value="1"/>
+                    <Cov CovItemId="S34" Value="1"/>
+                    <Cov CovItemId="S35" Value="1"/>
+                    <Cov CovItemId="S36" Value="1"/>
+                    <Cov CovItemId="S37" Value="1"/>
+                    <Cov CovItemId="S38" Value="1"/>
+                    <Cov CovItemId="S39" Value="1"/>
+                    <Cov CovItemId="S4" Value="1"/>
+                    <Cov CovItemId="S40" Value="1"/>
+                    <Cov CovItemId="S41" Value="1"/>
+                    <Cov CovItemId="S42" Value="1"/>
+                    <Cov CovItemId="S43" Value="1"/>
+                    <Cov CovItemId="S44" Value="1"/>
+                    <Cov CovItemId="S45" Value="1"/>
+                    <Cov CovItemId="S46" Value="1"/>
+                    <Cov CovItemId="S47" Value="1"/>
+                    <Cov CovItemId="S5" Value="1"/>
+                    <Cov CovItemId="S50" Value="1"/>
+                    <Cov CovItemId="S51" Value="1"/>
+                    <Cov CovItemId="S52" Value="1"/>
+                    <Cov CovItemId="S53" Value="1"/>
+                    <Cov CovItemId="S54" Value="1"/>
+                    <Cov CovItemId="S55" Value="1"/>
+                    <Cov CovItemId="S56" Value="1"/>
+                    <Cov CovItemId="S57" Value="1"/>
+                    <Cov CovItemId="S58" Value="1"/>
+                    <Cov CovItemId="S59" Value="1"/>
+                    <Cov CovItemId="S6" Value="1"/>
+                    <Cov CovItemId="S60" Value="1"/>
+                    <Cov CovItemId="S61" Value="1"/>
+                    <Cov CovItemId="S62" Value="1"/>
+                    <Cov CovItemId="S63" Value="1"/>
+                    <Cov CovItemId="S64" Value="1"/>
+                    <Cov CovItemId="S65" Value="1"/>
+                    <Cov CovItemId="S67" Value="1"/>
+                    <Cov CovItemId="S68" Value="1"/>
+                    <Cov CovItemId="S7" Value="1"/>
+                    <Cov CovItemId="S8" Value="1"/>
+                    <Cov CovItemId="S9" Value="1"/>
+                    <Cov CovItemId="S96" Value="1"/>
+                    <Cov CovItemId="S97" Value="1"/>
+                </CovPrefix>
+            </CovList>
+            <AssgnmntList>
+                <AssgnmntPrefix RootTermCovItemPrefix="FareCalculator.FareCalculator.java">
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C1">
+                        <MapEntry BoolAssgnmnt="0" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C13">
+                        <MapEntry BoolAssgnmnt="1" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C14">
+                        <MapEntry BoolAssgnmnt="0" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C17">
+                        <MapEntry BoolAssgnmnt="1" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C18">
+                        <MapEntry BoolAssgnmnt="1" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C2">
+                        <MapEntry BoolAssgnmnt="0" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C3">
+                        <MapEntry BoolAssgnmnt="0" Value="1"/>
+                    </AssgnmntListEntry>
+                </AssgnmntPrefix>
+            </AssgnmntList>
+            <ObjMetaDataList/>
+            <MetaDataList/>
+        </TestCase>
+        <MetaDataList/>
+    </TestSession>
+    <TestSession Comment="" Date="1673241859119" Name="Jan 9, 2023, 10:24:19 AM">
+        <TestCase Comment="This is a test case containing all coverage results cause no startTestCase methods where captured." Date="1673241551084" Name="UNNAMED TESTCASE">
+            <CovList>
+                <CovPrefix CovItemPrefix="FareCalculator.FareCalculator.java">
+                    <Cov CovItemId="B2" Value="1"/>
+                    <Cov CovItemId="B26" Value="1"/>
+                    <Cov CovItemId="B29" Value="1"/>
+                    <Cov CovItemId="B3" Value="1"/>
+                    <Cov CovItemId="B34" Value="1"/>
+                    <Cov CovItemId="B36" Value="1"/>
+                    <Cov CovItemId="B5" Value="1"/>
+                    <Cov CovItemId="B7" Value="1"/>
+                    <Cov CovItemId="S1" Value="1"/>
+                    <Cov CovItemId="S10" Value="1"/>
+                    <Cov CovItemId="S105" Value="1"/>
+                    <Cov CovItemId="S106" Value="1"/>
+                    <Cov CovItemId="S107" Value="1"/>
+                    <Cov CovItemId="S108" Value="1"/>
+                    <Cov CovItemId="S109" Value="1"/>
+                    <Cov CovItemId="S11" Value="1"/>
+                    <Cov CovItemId="S12" Value="1"/>
+                    <Cov CovItemId="S121" Value="1"/>
+                    <Cov CovItemId="S122" Value="1"/>
+                    <Cov CovItemId="S123" Value="1"/>
+                    <Cov CovItemId="S125" Value="1"/>
+                    <Cov CovItemId="S126" Value="1"/>
+                    <Cov CovItemId="S127" Value="1"/>
+                    <Cov CovItemId="S128" Value="1"/>
+                    <Cov CovItemId="S129" Value="1"/>
+                    <Cov CovItemId="S13" Value="1"/>
+                    <Cov CovItemId="S130" Value="1"/>
+                    <Cov CovItemId="S131" Value="1"/>
+                    <Cov CovItemId="S132" Value="1"/>
+                    <Cov CovItemId="S133" Value="1"/>
+                    <Cov CovItemId="S134" Value="1"/>
+                    <Cov CovItemId="S135" Value="1"/>
+                    <Cov CovItemId="S136" Value="1"/>
+                    <Cov CovItemId="S137" Value="1"/>
+                    <Cov CovItemId="S138" Value="1"/>
+                    <Cov CovItemId="S139" Value="1"/>
+                    <Cov CovItemId="S14" Value="1"/>
+                    <Cov CovItemId="S140" Value="1"/>
+                    <Cov CovItemId="S141" Value="1"/>
+                    <Cov CovItemId="S142" Value="1"/>
+                    <Cov CovItemId="S143" Value="1"/>
+                    <Cov CovItemId="S144" Value="1"/>
+                    <Cov CovItemId="S145" Value="1"/>
+                    <Cov CovItemId="S146" Value="1"/>
+                    <Cov CovItemId="S147" Value="1"/>
+                    <Cov CovItemId="S148" Value="1"/>
+                    <Cov CovItemId="S149" Value="1"/>
+                    <Cov CovItemId="S15" Value="1"/>
+                    <Cov CovItemId="S150" Value="1"/>
+                    <Cov CovItemId="S151" Value="1"/>
+                    <Cov CovItemId="S152" Value="1"/>
+                    <Cov CovItemId="S153" Value="1"/>
+                    <Cov CovItemId="S16" Value="1"/>
+                    <Cov CovItemId="S17" Value="1"/>
+                    <Cov CovItemId="S18" Value="1"/>
+                    <Cov CovItemId="S2" Value="1"/>
+                    <Cov CovItemId="S23" Value="1"/>
+                    <Cov CovItemId="S28" Value="1"/>
+                    <Cov CovItemId="S3" Value="1"/>
+                    <Cov CovItemId="S33" Value="1"/>
+                    <Cov CovItemId="S34" Value="1"/>
+                    <Cov CovItemId="S35" Value="1"/>
+                    <Cov CovItemId="S36" Value="1"/>
+                    <Cov CovItemId="S37" Value="1"/>
+                    <Cov CovItemId="S38" Value="1"/>
+                    <Cov CovItemId="S39" Value="1"/>
+                    <Cov CovItemId="S4" Value="1"/>
+                    <Cov CovItemId="S40" Value="1"/>
+                    <Cov CovItemId="S41" Value="1"/>
+                    <Cov CovItemId="S42" Value="1"/>
+                    <Cov CovItemId="S43" Value="1"/>
+                    <Cov CovItemId="S44" Value="1"/>
+                    <Cov CovItemId="S45" Value="1"/>
+                    <Cov CovItemId="S46" Value="1"/>
+                    <Cov CovItemId="S47" Value="1"/>
+                    <Cov CovItemId="S5" Value="1"/>
+                    <Cov CovItemId="S50" Value="1"/>
+                    <Cov CovItemId="S51" Value="1"/>
+                    <Cov CovItemId="S52" Value="1"/>
+                    <Cov CovItemId="S53" Value="1"/>
+                    <Cov CovItemId="S54" Value="1"/>
+                    <Cov CovItemId="S55" Value="1"/>
+                    <Cov CovItemId="S56" Value="1"/>
+                    <Cov CovItemId="S57" Value="1"/>
+                    <Cov CovItemId="S58" Value="1"/>
+                    <Cov CovItemId="S59" Value="1"/>
+                    <Cov CovItemId="S6" Value="1"/>
+                    <Cov CovItemId="S60" Value="1"/>
+                    <Cov CovItemId="S61" Value="1"/>
+                    <Cov CovItemId="S62" Value="1"/>
+                    <Cov CovItemId="S63" Value="1"/>
+                    <Cov CovItemId="S64" Value="1"/>
+                    <Cov CovItemId="S65" Value="1"/>
+                    <Cov CovItemId="S67" Value="1"/>
+                    <Cov CovItemId="S68" Value="1"/>
+                    <Cov CovItemId="S7" Value="1"/>
+                    <Cov CovItemId="S8" Value="1"/>
+                    <Cov CovItemId="S9" Value="1"/>
+                    <Cov CovItemId="S96" Value="1"/>
+                    <Cov CovItemId="S97" Value="1"/>
+                </CovPrefix>
+            </CovList>
+            <AssgnmntList>
+                <AssgnmntPrefix RootTermCovItemPrefix="FareCalculator.FareCalculator.java">
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C1">
+                        <MapEntry BoolAssgnmnt="0" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C13">
+                        <MapEntry BoolAssgnmnt="1" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C14">
+                        <MapEntry BoolAssgnmnt="0" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C17">
+                        <MapEntry BoolAssgnmnt="1" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C18">
+                        <MapEntry BoolAssgnmnt="1" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C2">
+                        <MapEntry BoolAssgnmnt="0" Value="1"/>
+                    </AssgnmntListEntry>
+                    <AssgnmntListEntry Length="1" RootTermCovItemId="C3">
+                        <MapEntry BoolAssgnmnt="0" Value="1"/>
+                    </AssgnmntListEntry>
+                </AssgnmntPrefix>
+            </AssgnmntList>
+            <ObjMetaDataList/>
+            <MetaDataList/>
+        </TestCase>
+        <MetaDataList/>
+    </TestSession>
 </TestSessionContainer>
